@@ -1,2 +1,2 @@
 # escape
-one room metroid vania for Piratesoftwares gamejam
+a one room metroidvania, made by Pi-Huntress for a Piratesoftwares gamejam
