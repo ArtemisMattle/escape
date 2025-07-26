@@ -1,0 +1,238 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjd4r0df4v6sa"]
+
+[ext_resource type="Texture2D" uid="uid://cmb8bnmrxauix" path="res://assets/characters/berylShin.png" id="1_5k2vy"]
+[ext_resource type="Texture2D" uid="uid://c8qdxcuj7tahx" path="res://assets/characters/berylFoot.png" id="2_dgmor"]
+[ext_resource type="Texture2D" uid="uid://d15o5tdtevtl7" path="res://assets/characters/berylLegR.png" id="3_8iy6g"]
+[ext_resource type="Texture2D" uid="uid://du787vrxh1xal" path="res://assets/characters/berylLeg.png" id="4_yto7o"]
+[ext_resource type="Texture2D" uid="uid://d27liewpt76tt" path="res://assets/characters/berylArm.png" id="5_aoehx"]
+[ext_resource type="Texture2D" uid="uid://cmwk6fyo4iaxw" path="res://assets/characters/berylHand.png" id="6_xyhg8"]
+[ext_resource type="Texture2D" uid="uid://dakj4303xmyqo" path="res://assets/characters/berylNeck.png" id="7_7y85c"]
+[ext_resource type="Texture2D" uid="uid://doh7fpu5ly3qm" path="res://assets/characters/berylBody.png" id="8_5rhjr"]
+[ext_resource type="Texture2D" uid="uid://b7o8b1ncau0s6" path="res://assets/characters/berylJacket.png" id="9_sm3lv"]
+[ext_resource type="Texture2D" uid="uid://cgmbdt4m07dfu" path="res://assets/characters/berylHead.png" id="10_ch804"]
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_umcca"]
+modification_count = 1
+
+[node name="berylBubblegum" type="Node2D"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+modification_stack = SubResource("SkeletonModificationStack2D_umcca")
+
+[node name="hip" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(201, -262)
+scale = Vector2(1, 1)
+rest = Transform2D(1, 0, 0, 1, 201, -262)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip"]
+remote_path = NodePath("../../../BerylBody")
+
+[node name="legR" type="Bone2D" parent="Skeleton2D/hip"]
+position = Vector2(-37, 23)
+scale = Vector2(0.999998, 0.999998)
+rest = Transform2D(1, 0, 0, 1, -37, 23)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/legR"]
+rotation = -0.10472
+remote_path = NodePath("../../../../BerylLegR")
+
+[node name="shinR" type="Bone2D" parent="Skeleton2D/hip/legR"]
+position = Vector2(14, 91)
+rest = Transform2D(1, 0, 0, 1, 14, 91)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/legR/shinR"]
+rotation = 0.122173
+remote_path = NodePath("../../../../../BerylShin")
+
+[node name="footR" type="Bone2D" parent="Skeleton2D/hip/legR/shinR"]
+position = Vector2(-12, 113)
+rest = Transform2D(1, 0, 0, 1, -12, 113)
+auto_calculate_length_and_angle = false
+length = 64.0
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/legR/shinR/footR"]
+remote_path = NodePath("../../../../../../BerylFoot")
+
+[node name="legL" type="Bone2D" parent="Skeleton2D/hip"]
+position = Vector2(28, 15)
+rest = Transform2D(1, 0, 0, 1, 28, 15)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/legL"]
+rotation = -0.253073
+remote_path = NodePath("../../../../BerylLeg")
+
+[node name="shinL" type="Bone2D" parent="Skeleton2D/hip/legL"]
+position = Vector2(14, 91)
+rest = Transform2D(1, 0, 0, 1, 14, 91)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/legL/shinL"]
+rotation = 0.139626
+remote_path = NodePath("../../../../../BerylShin2")
+
+[node name="footL" type="Bone2D" parent="Skeleton2D/hip/legL/shinL"]
+position = Vector2(-12, 113)
+rest = Transform2D(1, 0, 0, 1, -12, 113)
+auto_calculate_length_and_angle = false
+length = 64.0
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/legL/shinL/footL"]
+remote_path = NodePath("../../../../../../BerylFoot2")
+
+[node name="jacket" type="Bone2D" parent="Skeleton2D/hip"]
+position = Vector2(-46, -166)
+rest = Transform2D(1, 0, 0, 1, -46, -166)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/jacket"]
+remote_path = NodePath("../../../../BerylJacket")
+
+[node name="armR" type="Bone2D" parent="Skeleton2D/hip/jacket"]
+position = Vector2(10, 2)
+rest = Transform2D(1, 0, 0, 1, 10, 2)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/jacket/armR"]
+rotation = -0.314159
+remote_path = NodePath("../../../../../BerylArm")
+
+[node name="forarmR" type="Bone2D" parent="Skeleton2D/hip/jacket/armR"]
+position = Vector2(31, 80)
+rest = Transform2D(1, 0, 0, 1, 31, 80)
+auto_calculate_length_and_angle = false
+length = 64.0
+bone_angle = 25.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/jacket/armR/forarmR"]
+rotation = -1.20428
+remote_path = NodePath("../../../../../../BerylHand")
+
+[node name="armL" type="Bone2D" parent="Skeleton2D/hip/jacket"]
+position = Vector2(29, -2)
+rest = Transform2D(1, 0, 0, 1, 29, -2)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/jacket/armL"]
+rotation = -0.331613
+remote_path = NodePath("../../../../../BerylArm2")
+
+[node name="forarmL" type="Bone2D" parent="Skeleton2D/hip/jacket/armL"]
+position = Vector2(31, 80)
+rest = Transform2D(1, 0, 0, 1, 31, 80)
+auto_calculate_length_and_angle = false
+length = 64.0
+bone_angle = 25.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/jacket/armL/forarmL"]
+rotation = -1.20428
+remote_path = NodePath("../../../../../../BerylHand2")
+
+[node name="neck" type="Bone2D" parent="Skeleton2D/hip"]
+position = Vector2(-32, -175)
+rest = Transform2D(1, 0, 0, 1, -32, -175)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/neck"]
+remote_path = NodePath("../../../../BerylNeck")
+
+[node name="head" type="Bone2D" parent="Skeleton2D/hip/neck"]
+position = Vector2(8, -46)
+rest = Transform2D(1, 0, 0, 1, 8, -46)
+auto_calculate_length_and_angle = false
+length = 32.0
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/neck/head"]
+remote_path = NodePath("../../../../../BerylHead")
+
+[node name="BerylShin2" type="Sprite2D" parent="."]
+position = Vector2(243, -156)
+rotation = 0.139626
+scale = Vector2(1, 1)
+texture = ExtResource("1_5k2vy")
+offset = Vector2(40.8129, 54.2707)
+
+[node name="BerylFoot2" type="Sprite2D" parent="."]
+position = Vector2(231, -43.0001)
+scale = Vector2(1, 1)
+texture = ExtResource("2_dgmor")
+offset = Vector2(27, -28.5909)
+
+[node name="BerylLegR" type="Sprite2D" parent="."]
+position = Vector2(164, -239)
+rotation = -0.10472
+scale = Vector2(0.999997, 0.999997)
+texture = ExtResource("3_8iy6g")
+offset = Vector2(37.6669, 43.579)
+
+[node name="BerylShin" type="Sprite2D" parent="."]
+position = Vector2(178, -148)
+rotation = 0.122173
+scale = Vector2(0.999997, 0.999997)
+texture = ExtResource("1_5k2vy")
+offset = Vector2(36.1405, 48.2514)
+
+[node name="BerylFoot" type="Sprite2D" parent="."]
+position = Vector2(166, -35.0005)
+scale = Vector2(0.999997, 0.999997)
+texture = ExtResource("2_dgmor")
+offset = Vector2(23, -34.6245)
+
+[node name="BerylLeg" type="Sprite2D" parent="."]
+position = Vector2(229, -247)
+rotation = -0.253073
+scale = Vector2(1, 1)
+texture = ExtResource("4_yto7o")
+offset = Vector2(25.6066, 54.539)
+
+[node name="BerylArm2" type="Sprite2D" parent="."]
+position = Vector2(184, -430)
+rotation = -0.331613
+scale = Vector2(1, 1)
+texture = ExtResource("5_aoehx")
+offset = Vector2(31.5729, 34.5957)
+
+[node name="BerylHand2" type="Sprite2D" parent="."]
+position = Vector2(215, -350)
+rotation = -1.20428
+scale = Vector2(1, 1)
+texture = ExtResource("6_xyhg8")
+offset = Vector2(32.3144, 38.2663)
+
+[node name="BerylNeck" type="Sprite2D" parent="."]
+position = Vector2(169, -437)
+scale = Vector2(1, 1)
+texture = ExtResource("7_7y85c")
+offset = Vector2(18, -15)
+
+[node name="BerylBody" type="Sprite2D" parent="."]
+position = Vector2(201, -262)
+scale = Vector2(1, 1)
+texture = ExtResource("8_5rhjr")
+offset = Vector2(-6, -94)
+
+[node name="BerylJacket" type="Sprite2D" parent="."]
+position = Vector2(155, -428)
+scale = Vector2(1, 1)
+texture = ExtResource("9_sm3lv")
+offset = Vector2(45, 70)
+
+[node name="BerylArm" type="Sprite2D" parent="."]
+position = Vector2(165, -426)
+rotation = -0.314159
+scale = Vector2(1, 1)
+texture = ExtResource("5_aoehx")
+offset = Vector2(27.7773, 27.5224)
+
+[node name="BerylHand" type="Sprite2D" parent="."]
+position = Vector2(196, -346)
+rotation = -1.20428
+scale = Vector2(1, 1)
+texture = ExtResource("6_xyhg8")
+offset = Vector2(31.9651, 29.8488)
+
+[node name="BerylHead" type="Sprite2D" parent="."]
+position = Vector2(177, -483)
+scale = Vector2(1, 1)
+texture = ExtResource("10_ch804")
+offset = Vector2(7, -22)

@@ -7,7 +7,7 @@
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_3f3va")
 Label/colors/font_color = Color(0.469064, 0.105588, 0.499287, 1)
-Label/constants/outline_size = 13
+Label/constants/outline_size = 7
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("2_lxams")
 MarginContainer/constants/margin_bottom = 50
