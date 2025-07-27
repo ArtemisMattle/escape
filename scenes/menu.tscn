@@ -34,10 +34,10 @@ size_flags_horizontal = 4
 text = "Play
 "
 
-[node name="options" type="Button" parent="edge/centerer/stack"]
+[node name="settings" type="Button" parent="edge/centerer/stack"]
 custom_minimum_size = Vector2(210, 42)
 layout_mode = 2
 size_flags_horizontal = 4
 disabled = true
-text = "Options
+text = "Settings
 "
