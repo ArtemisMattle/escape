@@ -2,6 +2,7 @@ extends State
 
 @export var groundState: State
 var gravityMult : float = 2.5
+var storedEvent : InputEvent
 
 func onEnter() -> void:
 	if groundState is not State:
@@ -10,6 +11,7 @@ func onEnter() -> void:
 func stateInput(event: InputEvent) -> void:
 	if event.is_action_pressed("down"):
 		character.gravityMult = gravityMult
+	storedEvent = event
 
 func stateProcess(delta: float) -> void:
 	if character.velocity.y <= 0.1 and character.is_on_floor():
@@ -17,3 +19,5 @@ func stateProcess(delta: float) -> void:
 
 func onExit() -> void:
 	character.gravityMult = character.gravityBaseMult
+	if storedEvent != null:
+		nextState.stateInput(storedEvent)

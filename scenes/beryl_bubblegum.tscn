@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cjd4r0df4v6sa"]
+[gd_scene load_steps=27 format=3 uid="uid://cjd4r0df4v6sa"]
 
 [ext_resource type="Texture2D" uid="uid://cmb8bnmrxauix" path="res://assets/characters/berylShin.png" id="1_5k2vy"]
 [ext_resource type="Script" uid="uid://gl043mh4yupk" path="res://scripts/playerCon.gd" id="1_dgmor"]
@@ -17,10 +17,6 @@
 [ext_resource type="Script" uid="uid://bqx3i6xej5wws" path="res://scripts/fall_state.gd" id="15_7y85c"]
 [ext_resource type="Script" uid="uid://bnak2hbeel1v1" path="res://scripts/debug_state_lable.gd" id="16_5rhjr"]
 [ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="16_sm3lv"]
-
-[sub_resource type="Curve" id="Curve_5rhjr"]
-_data = [Vector2(0, 0), 0.0, 2.01131, 0, 0, Vector2(0.24911, 0.498548), 0.823445, 0.823445, 0, 0, Vector2(1, 1), 0.691116, 0.0, 0, 0]
-point_count = 3
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5k2vy"]
 radius = 95.0
@@ -143,7 +139,6 @@ modifications/6 = SubResource("SkeletonModification2DLookAt_7y85c")
 
 [node name="berylBubblegum" type="CharacterBody2D"]
 script = ExtResource("1_dgmor")
-speedCurve = SubResource("Curve_5rhjr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -429,6 +424,11 @@ script = ExtResource("13_aoehx")
 jumpState = NodePath("../jumpState")
 fallState = NodePath("../fallState")
 
+[node name="coyote" type="Timer" parent="charStateMachine/groundState"]
+process_callback = 0
+wait_time = 0.15
+one_shot = true
+
 [node name="jumpState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("fallState")]
 script = ExtResource("14_aoehx")
 fallState = NodePath("../fallState")
@@ -443,5 +443,8 @@ offset_top = -391.0
 offset_right = -1.0
 offset_bottom = -342.0
 theme = ExtResource("16_sm3lv")
+theme_override_font_sizes/font_size = 64
 script = ExtResource("16_5rhjr")
 StateMachine = NodePath("../charStateMachine")
+
+[connection signal="timeout" from="charStateMachine/groundState/coyote" to="charStateMachine/groundState" method="coyote"]
