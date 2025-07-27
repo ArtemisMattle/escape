@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmb8bnmrxauix"
-path="res://.godot/imported/berylShin.png-19941e6c0f93749d3f4a9e64fcfab987.ctex"
+uid="uid://dbi07ssivc130"
+path="res://.godot/imported/shoe.png-39c41d5bb1e7a0dafce67487e2c544bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/berylShin.png"
-dest_files=["res://.godot/imported/berylShin.png-19941e6c0f93749d3f4a9e64fcfab987.ctex"]
+source_file="res://assets/characters/grant/shoe.png"
+dest_files=["res://.godot/imported/shoe.png-39c41d5bb1e7a0dafce67487e2c544bf.ctex"]
 
 [params]
 

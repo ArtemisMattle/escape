@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmwk6fyo4iaxw"
-path="res://.godot/imported/berylHand.png-d0994cbf52e820cf46c11909ed7742eb.ctex"
+uid="uid://ch5jc5nq2eivf"
+path="res://.godot/imported/head.png-ac141f9ba04e519b343bbc11389d4952.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/berylHand.png"
-dest_files=["res://.godot/imported/berylHand.png-d0994cbf52e820cf46c11909ed7742eb.ctex"]
+source_file="res://assets/characters/grant/head.png"
+dest_files=["res://.godot/imported/head.png-ac141f9ba04e519b343bbc11389d4952.ctex"]
 
 [params]
 

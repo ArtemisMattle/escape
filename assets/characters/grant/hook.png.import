@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l0nr3cmn0f8o"
-path="res://.godot/imported/berylFoot2.png-2952f798b6ef736d8746174148d10706.ctex"
+uid="uid://d3yx0oih78pct"
+path="res://.godot/imported/hook.png-863e993364c028d1a9790cc9c1e91a44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/berylFoot2.png"
-dest_files=["res://.godot/imported/berylFoot2.png-2952f798b6ef736d8746174148d10706.ctex"]
+source_file="res://assets/characters/grant/hook.png"
+dest_files=["res://.godot/imported/hook.png-863e993364c028d1a9790cc9c1e91a44.ctex"]
 
 [params]
 

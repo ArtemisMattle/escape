@@ -1,0 +1,414 @@
+[gd_scene load_steps=26 format=3 uid="uid://bc8skopkv8t6j"]
+
+[ext_resource type="Script" uid="uid://gl043mh4yupk" path="res://scripts/playerCon.gd" id="1_slved"]
+[ext_resource type="Texture2D" uid="uid://duh1b6mxh6bvh" path="res://assets/characters/grant/legL.png" id="2_ievb1"]
+[ext_resource type="Texture2D" uid="uid://dbi07ssivc130" path="res://assets/characters/grant/shoe.png" id="3_slved"]
+[ext_resource type="Texture2D" uid="uid://dennqymv8r188" path="res://assets/characters/grant/legR.png" id="4_1wkvs"]
+[ext_resource type="Texture2D" uid="uid://d3yx0oih78pct" path="res://assets/characters/grant/hook.png" id="5_40lqs"]
+[ext_resource type="Texture2D" uid="uid://5fdh7g3yde2v" path="res://assets/characters/grant/prosthetic.png" id="6_ibi6o"]
+[ext_resource type="Texture2D" uid="uid://soqutaf803qu" path="res://assets/characters/grant/body.png" id="7_8cc45"]
+[ext_resource type="Texture2D" uid="uid://ch5jc5nq2eivf" path="res://assets/characters/grant/head.png" id="8_n7smq"]
+[ext_resource type="Texture2D" uid="uid://b4v3xedpgefgy" path="res://assets/characters/grant/arm.png" id="9_70whg"]
+[ext_resource type="Texture2D" uid="uid://blienaxx486qd" path="res://assets/characters/grant/hand.png" id="10_rnx68"]
+[ext_resource type="Script" uid="uid://dhlfums4rvsb1" path="res://scripts/char_state_machine.gd" id="12_8erdi"]
+[ext_resource type="Script" uid="uid://y7ee7bur5bll" path="res://scripts/ground_state.gd" id="13_2tldl"]
+[ext_resource type="Script" uid="uid://cldnvk40b1w3b" path="res://scripts/jump_state.gd" id="14_wffar"]
+[ext_resource type="Script" uid="uid://bqx3i6xej5wws" path="res://scripts/fall_state.gd" id="15_orhyk"]
+[ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="16_ms3c8"]
+[ext_resource type="Script" uid="uid://bnak2hbeel1v1" path="res://scripts/debug_state_lable.gd" id="17_yxtrn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5k2vy"]
+radius = 111.0
+height = 512.0
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_7y85c"]
+bone_index = 12
+bone2d_node = NodePath("hip/neck/head")
+target_nodepath = NodePath("../ikTargets/headT")
+enable_constraint = true
+constraint_angle_min = 18.737
+constraint_angle_max = 323.479
+constraint_angle_invert = true
+constraint_in_localspace = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_bfppd"]
+target_nodepath = NodePath("../ikTargets/footRT")
+tip_nodepath = NodePath("hip/legR/shinR")
+ccdik_data_chain_length = 1
+joint_data/0/bone_index = 1
+joint_data/0/bone2d_node = NodePath("hip/legR")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -22.554
+joint_data/0/constraint_angle_max = 56.386
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_3jm77"]
+bone_index = 2
+bone2d_node = NodePath("hip/legR/shinR")
+target_nodepath = NodePath("../ikTargets/footRT/footRLA")
+enable_constraint = true
+constraint_angle_min = -32.6
+constraint_angle_max = 4.35
+constraint_angle_invert = true
+constraint_in_localspace = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_da4mp"]
+target_nodepath = NodePath("../ikTargets/footLT")
+tip_nodepath = NodePath("hip/legL/shinL")
+ccdik_data_chain_length = 1
+joint_data/0/bone_index = 3
+joint_data/0/bone2d_node = NodePath("hip/legL")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -22.554
+joint_data/0/constraint_angle_max = 56.386
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_8erdi"]
+bone_index = 4
+bone2d_node = NodePath("hip/legL/shinL")
+target_nodepath = NodePath("../ikTargets/footLT/footLLA")
+enable_constraint = true
+constraint_angle_min = -32.58
+constraint_angle_max = 4.362
+constraint_angle_invert = true
+constraint_in_localspace = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_ievb1"]
+target_nodepath = NodePath("../ikTargets/handLT")
+tip_nodepath = NodePath("hip/jacket/armL/forarmL")
+ccdik_data_chain_length = 1
+joint_data/0/bone_index = 9
+joint_data/0/bone2d_node = NodePath("hip/jacket/armL")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -38.169
+joint_data/0/constraint_angle_max = 216.0
+joint_data/0/constraint_angle_invert = false
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_slved"]
+target_nodepath = NodePath("../ikTargets/handRT")
+tip_nodepath = NodePath("hip/jacket/armR/forarmR/handR")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 6
+joint_data/0/bone2d_node = NodePath("hip/jacket/armR")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 7
+joint_data/1/bone2d_node = NodePath("hip/jacket/armR/forarmR")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = 0.0
+joint_data/1/constraint_angle_max = 49.446
+joint_data/1/constraint_angle_invert = false
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_umcca"]
+enabled = true
+modification_count = 7
+modifications/0 = SubResource("SkeletonModification2DLookAt_7y85c")
+modifications/1 = SubResource("SkeletonModification2DCCDIK_bfppd")
+modifications/2 = SubResource("SkeletonModification2DLookAt_3jm77")
+modifications/3 = SubResource("SkeletonModification2DCCDIK_da4mp")
+modifications/4 = SubResource("SkeletonModification2DLookAt_8erdi")
+modifications/5 = SubResource("SkeletonModification2DCCDIK_ievb1")
+modifications/6 = SubResource("SkeletonModification2DCCDIK_slved")
+
+[node name="berylBubblegum" type="CharacterBody2D"]
+script = ExtResource("1_slved")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(5, -56)
+shape = SubResource("CapsuleShape2D_5k2vy")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+visible = false
+position = Vector2(1, 0)
+modification_stack = SubResource("SkeletonModificationStack2D_umcca")
+
+[node name="hip" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(0.72197, -6.10352e-05)
+rest = Transform2D(1, 0, 0, 1, 0.72197, -6.10352e-05)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip"]
+remote_path = NodePath("../../../sprites/BerylBody")
+
+[node name="legR" type="Bone2D" parent="Skeleton2D/hip"]
+position = Vector2(-27.722, 15.0001)
+rotation = 0.011122
+scale = Vector2(0.99999, 0.99999)
+rest = Transform2D(0.999998, 0, 0, 0.999998, -37, 23)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/legR"]
+rotation = -0.10472
+remote_path = NodePath("../../../../sprites/BerylLegR")
+
+[node name="shinR" type="Bone2D" parent="Skeleton2D/hip/legR"]
+position = Vector2(14.0029, 89.8508)
+rotation = 0.148719
+scale = Vector2(1.00001, 1.00001)
+rest = Transform2D(1, 0, 0, 1, 14, 91)
+auto_calculate_length_and_angle = false
+length = 80.191
+bone_angle = 96.0618
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/legR/shinR"]
+rotation = 0.122173
+remote_path = NodePath("../../../../../sprites/BerylShin")
+
+[node name="legL" type="Bone2D" parent="Skeleton2D/hip"]
+position = Vector2(45.278, 10.0001)
+rotation = -0.200755
+scale = Vector2(0.999995, 0.999995)
+rest = Transform2D(0.98822, -0.153024, 0.153024, 0.98822, 28, 15)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/legL"]
+rotation = -0.253073
+remote_path = NodePath("../../../../sprites/BerylLeg")
+
+[node name="shinL" type="Bone2D" parent="Skeleton2D/hip/legL"]
+position = Vector2(13.6099, 93.5941)
+rest = Transform2D(0.988962, 0.148172, -0.148172, 0.988962, 14.0004, 91.0026)
+auto_calculate_length_and_angle = false
+length = 78.223
+bone_angle = 97.447
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/legL/shinL"]
+rotation = 0.139626
+remote_path = NodePath("../../../../../sprites/BerylShin2")
+
+[node name="jacket" type="Bone2D" parent="Skeleton2D/hip"]
+position = Vector2(-23.722, -162)
+rest = Transform2D(1, 0, 0, 1, -46, -166)
+
+[node name="armR" type="Bone2D" parent="Skeleton2D/hip/jacket"]
+position = Vector2(10, 2)
+rest = Transform2D(0.947706, -0.319119, 0.319119, 0.947706, 10, 2)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/jacket/armR"]
+rotation = -0.314159
+remote_path = NodePath("../../../../../sprites/BerylArm")
+
+[node name="forarmR" type="Bone2D" parent="Skeleton2D/hip/jacket/armR"]
+position = Vector2(10.6057, 82.4552)
+rotation = 0.542012
+scale = Vector2(0.999999, 0.999999)
+rest = Transform2D(1, 0, 0, 1, 31, 80)
+auto_calculate_length_and_angle = false
+length = 64.0
+bone_angle = 25.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/jacket/armR/forarmR"]
+rotation = -1.20428
+remote_path = NodePath("../../../../../../sprites/BerylHand")
+
+[node name="handR" type="Bone2D" parent="Skeleton2D/hip/jacket/armR/forarmR"]
+position = Vector2(57.4891, 24.7146)
+rest = Transform2D(1, 0, 0, 1, 57.4891, 24.7146)
+auto_calculate_length_and_angle = false
+length = 23.721
+bone_angle = 21.736
+
+[node name="armL" type="Bone2D" parent="Skeleton2D/hip/jacket"]
+position = Vector2(35.278, 2.00006)
+rotation = -1.04002
+scale = Vector2(0.999998, 0.999998)
+rest = Transform2D(1, 0, 0, 1, 29, -2)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/jacket/armL"]
+rotation = 1.60745
+remote_path = NodePath("../../../../../sprites/BerylArm2")
+
+[node name="forarmL" type="Bone2D" parent="Skeleton2D/hip/jacket/armL"]
+position = Vector2(26.4348, 139.862)
+rotation = 0.542012
+scale = Vector2(1, 1)
+rest = Transform2D(1, 0, 0, 1, 31, 80)
+auto_calculate_length_and_angle = false
+length = 64.0
+bone_angle = 25.0
+
+[node name="neck" type="Bone2D" parent="Skeleton2D/hip"]
+position = Vector2(-0.72197, -180)
+rest = Transform2D(1, 0, 0, 1, -32, -175)
+
+[node name="head" type="Bone2D" parent="Skeleton2D/hip/neck"]
+position = Vector2(27, -33)
+rotation = 0.0760435
+scale = Vector2(0.999955, 0.999955)
+rest = Transform2D(1, 0, 0, 1, 8, -46)
+auto_calculate_length_and_angle = false
+length = 32.0
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/neck/head"]
+remote_path = NodePath("../../../../../sprites/BerylHead")
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="BerylLeg" type="Sprite2D" parent="sprites"]
+position = Vector2(47, 10)
+rotation = -0.183245
+scale = Vector2(0.999953, 0.999953)
+texture = ExtResource("2_ievb1")
+offset = Vector2(49.1011, -86.425)
+
+[node name="BerylShin2" type="Sprite2D" parent="sprites"]
+position = Vector2(54.0462, 104.311)
+rotation = -0.0506044
+scale = Vector2(0.999952, 0.999952)
+texture = ExtResource("3_slved")
+offset = Vector2(119.922, -171.94)
+
+[node name="BerylFoot2" type="Sprite2D" parent="sprites"]
+position = Vector2(58.9889, 161.545)
+rotation = -0.240732
+scale = Vector2(1, 1)
+offset = Vector2(39.2155, -24.8129)
+
+[node name="BerylLegR" type="Sprite2D" parent="sprites"]
+position = Vector2(-26, 15)
+rotation = 0.0815175
+scale = Vector2(0.99999, 0.99999)
+texture = ExtResource("4_1wkvs")
+offset = Vector2(124.712, -84.8057)
+
+[node name="BerylShin" type="Sprite2D" parent="sprites"]
+position = Vector2(-28.8762, 105.889)
+rotation = 0.0413227
+scale = Vector2(0.999989, 0.999989)
+texture = ExtResource("3_slved")
+offset = Vector2(117.958, -168.985)
+
+[node name="BerylFoot" type="Sprite2D" parent="sprites"]
+position = Vector2(-30.9531, 223.028)
+rotation = -0.0947482
+scale = Vector2(0.999993, 0.999993)
+offset = Vector2(39.7733, -39.4803)
+
+[node name="BerylArm2" type="Sprite2D" parent="sprites"]
+position = Vector2(13.278, -160)
+rotation = 0.330395
+scale = Vector2(0.999987, 0.999987)
+texture = ExtResource("6_ibi6o")
+offset = Vector2(42.7656, 52.3454)
+
+[node name="BerylHook" type="Sprite2D" parent="sprites/BerylArm2"]
+z_index = -1
+position = Vector2(142.301, 3.22179)
+rotation = -0.0182388
+scale = Vector2(1, 1)
+texture = ExtResource("5_40lqs")
+offset = Vector2(-95.2779, 48.6689)
+
+[node name="BerylNeck" type="Sprite2D" parent="sprites"]
+position = Vector2(1, -180)
+offset = Vector2(18, -15)
+
+[node name="BerylBody" type="Sprite2D" parent="sprites"]
+position = Vector2(1.72197, -6.10352e-05)
+texture = ExtResource("7_8cc45")
+offset = Vector2(89.6053, -56.0014)
+
+[node name="BerylJacket" type="Sprite2D" parent="sprites"]
+position = Vector2(-22, -162)
+offset = Vector2(45, 70)
+
+[node name="BerylHead" type="Sprite2D" parent="sprites"]
+position = Vector2(28, -213)
+rotation = -0.0135129
+scale = Vector2(0.999919, 0.999919)
+texture = ExtResource("8_n7smq")
+offset = Vector2(65.5758, 132.879)
+
+[node name="BerylArm" type="Sprite2D" parent="sprites"]
+position = Vector2(-12, -160)
+rotation = 0.0123624
+scale = Vector2(0.999972, 0.999972)
+texture = ExtResource("9_70whg")
+offset = Vector2(123.738, 50.7336)
+
+[node name="BerylHand" type="Sprite2D" parent="sprites"]
+position = Vector2(-28.403, -78.4974)
+rotation = -0.877759
+scale = Vector2(0.999978, 0.999978)
+texture = ExtResource("10_rnx68")
+offset = Vector2(155.521, -40.8132)
+
+[node name="ikTargets" type="Node2D" parent="."]
+
+[node name="footRT" type="Node2D" parent="ikTargets"]
+position = Vector2(-31, 173)
+
+[node name="footRLA" type="Node2D" parent="ikTargets/footRT"]
+position = Vector2(0, 18)
+
+[node name="footLT" type="Node2D" parent="ikTargets"]
+position = Vector2(60, 184)
+
+[node name="footLLA" type="Node2D" parent="ikTargets/footLT"]
+position = Vector2(0, 19)
+
+[node name="handRT" type="Node2D" parent="ikTargets"]
+position = Vector2(9, -74)
+
+[node name="handLT" type="Node2D" parent="ikTargets"]
+position = Vector2(330, -126)
+
+[node name="headT" type="Node2D" parent="ikTargets"]
+position = Vector2(176, -215)
+
+[node name="charStateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState")]
+script = ExtResource("12_8erdi")
+currentState = NodePath("groundState")
+
+[node name="groundState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("jumpState", "fallState")]
+script = ExtResource("13_2tldl")
+jumpState = NodePath("../jumpState")
+fallState = NodePath("../fallState")
+
+[node name="coyote" type="Timer" parent="charStateMachine/groundState"]
+process_callback = 0
+wait_time = 0.15
+one_shot = true
+
+[node name="jumpState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("fallState")]
+script = ExtResource("14_wffar")
+fallState = NodePath("../fallState")
+
+[node name="fallState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("groundState")]
+script = ExtResource("15_orhyk")
+groundState = NodePath("../groundState")
+
+[node name="debugStateLable" type="Label" parent="." node_paths=PackedStringArray("StateMachine")]
+offset_left = -41.0
+offset_top = -391.0
+offset_right = -1.0
+offset_bottom = -342.0
+theme = ExtResource("16_ms3c8")
+theme_override_font_sizes/font_size = 64
+script = ExtResource("17_yxtrn")
+StateMachine = NodePath("../charStateMachine")
+
+[connection signal="timeout" from="charStateMachine/groundState/coyote" to="charStateMachine/groundState" method="coyote"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7o8b1ncau0s6"
-path="res://.godot/imported/berylJacket.png-e1bdfedcf9a45bebc42a53ea9b26cc45.ctex"
+uid="uid://cgmbdt4m07dfu"
+path="res://.godot/imported/berylHead.png-081bd03513b5389191734b0a8660a0ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/berylJacket.png"
-dest_files=["res://.godot/imported/berylJacket.png-e1bdfedcf9a45bebc42a53ea9b26cc45.ctex"]
+source_file="res://assets/characters/beryl/berylHead.png"
+dest_files=["res://.godot/imported/berylHead.png-081bd03513b5389191734b0a8660a0ed.ctex"]
 
 [params]
 

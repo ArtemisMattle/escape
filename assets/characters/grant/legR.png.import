@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du787vrxh1xal"
-path="res://.godot/imported/berylLeg.png-2d3f75d7124aa385a28ed259c4e6a178.ctex"
+uid="uid://dennqymv8r188"
+path="res://.godot/imported/legR.png-b3f0fdbb5f31f30a07866b1a2b43ab8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/berylLeg.png"
-dest_files=["res://.godot/imported/berylLeg.png-2d3f75d7124aa385a28ed259c4e6a178.ctex"]
+source_file="res://assets/characters/grant/legR.png"
+dest_files=["res://.godot/imported/legR.png-b3f0fdbb5f31f30a07866b1a2b43ab8b.ctex"]
 
 [params]
 
