@@ -6,11 +6,14 @@ class_name State
 var character: CharacterBody2D
 var nextState: State
 
-func stateInput(event: InputEvent):
+func onEnter() -> void:
 	pass
 
-func onEnter():
+func stateInput(event: InputEvent) -> void:
 	pass
 
-func onExit():
+func stateProcess(delta: float) -> void:
+	pass
+
+func onExit() -> void:
 	pass

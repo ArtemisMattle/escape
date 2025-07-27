@@ -14,13 +14,16 @@ func _ready() -> void:
 	for child in get_children():
 		if (child is State):
 			States.append(child)
+			child.character = character
 		else:
 			push_warning("Child " + child.name + " is not a valid State for charStateMachine for " + get_parent().name)
+	currentState.onEnter()
 
 func _input(event: InputEvent) -> void:
 	currentState.stateInput(event)
 
 func _process(delta: float) -> void:
+	currentState.stateProcess(delta)
 	if currentState.nextState != null:
 		switchState(currentState.nextState)
 
