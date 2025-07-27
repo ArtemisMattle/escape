@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cjd4r0df4v6sa"]
+[gd_scene load_steps=27 format=3 uid="uid://cjd4r0df4v6sa"]
 
 [ext_resource type="Texture2D" uid="uid://cmb8bnmrxauix" path="res://assets/characters/berylShin.png" id="1_5k2vy"]
 [ext_resource type="Script" uid="uid://gl043mh4yupk" path="res://scripts/playerCon.gd" id="1_dgmor"]
@@ -11,6 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://doh7fpu5ly3qm" path="res://assets/characters/berylBody.png" id="8_5rhjr"]
 [ext_resource type="Texture2D" uid="uid://b7o8b1ncau0s6" path="res://assets/characters/berylJacket.png" id="9_sm3lv"]
 [ext_resource type="Texture2D" uid="uid://tba0b5ievvxh" path="res://assets/characters/berylHeadBeeg.png" id="11_dgmor"]
+[ext_resource type="Script" uid="uid://dhlfums4rvsb1" path="res://scripts/char_state_machine.gd" id="12_yto7o"]
+[ext_resource type="Script" uid="uid://y7ee7bur5bll" path="res://scripts/ground_state.gd" id="13_aoehx"]
+[ext_resource type="Script" uid="uid://cldnvk40b1w3b" path="res://scripts/jump_state.gd" id="14_aoehx"]
+[ext_resource type="Script" uid="uid://bqx3i6xej5wws" path="res://scripts/fall_state.gd" id="15_7y85c"]
+[ext_resource type="Script" uid="uid://bnak2hbeel1v1" path="res://scripts/debug_state_lable.gd" id="16_5rhjr"]
+[ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="16_sm3lv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5k2vy"]
 radius = 95.0
@@ -298,7 +304,7 @@ remote_path = NodePath("../../../../../sprites/BerylHead")
 
 [node name="BerylShin2" type="Sprite2D" parent="sprites"]
 position = Vector2(97.4272, 77.3938)
-rotation = 0.636645
+rotation = 0.636644
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("1_5k2vy")
 offset = Vector2(40.8129, 54.2707)
@@ -306,7 +312,7 @@ offset = Vector2(40.8129, 54.2707)
 [node name="BerylFoot2" type="Sprite2D" parent="sprites"]
 position = Vector2(33, 171)
 rotation = 0.517487
-scale = Vector2(0.999998, 0.999998)
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("3_dgmor")
 offset = Vector2(39.2155, -24.8129)
 
@@ -319,24 +325,24 @@ offset = Vector2(25.6066, 54.539)
 
 [node name="BerylLegR" type="Sprite2D" parent="sprites"]
 position = Vector2(-35.278, 22.9999)
-rotation = -0.0589927
-scale = Vector2(0.999994, 0.999994)
+rotation = -0.19747
+scale = Vector2(0.999993, 0.999993)
 texture = ExtResource("3_8iy6g")
 offset = Vector2(37.6669, 43.579)
 
 [node name="BerylShin" type="Sprite2D" parent="sprites"]
-position = Vector2(-25.4524, 114.545)
-rotation = 0.31662
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(-12.9102, 112.312)
+rotation = 0.178143
+scale = Vector2(0.999996, 0.999996)
 texture = ExtResource("1_5k2vy")
 offset = Vector2(36.1405, 48.2514)
 
 [node name="BerylFoot" type="Sprite2D" parent="sprites"]
-position = Vector2(-59.0606, 223.097)
-rotation = -0.0150072
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(-31.2127, 224.463)
+rotation = 0.0207072
+scale = Vector2(0.999995, 0.999995)
 texture = ExtResource("3_dgmor")
-offset = Vector2(44.7576, -29.3026)
+offset = Vector2(39.7733, -39.4803)
 
 [node name="BerylArm2" type="Sprite2D" parent="sprites"]
 position = Vector2(-15.278, -168)
@@ -385,16 +391,16 @@ texture = ExtResource("6_xyhg8")
 offset = Vector2(31.9651, 29.8488)
 
 [node name="BerylHead" type="Sprite2D" parent="sprites"]
-position = Vector2(-22.278, -220.953)
-rotation = -0.0135463
-scale = Vector2(0.999919, 0.999919)
+position = Vector2(-22.278, -220.956)
+rotation = -0.0135143
+scale = Vector2(0.999918, 0.999918)
 texture = ExtResource("11_dgmor")
 offset = Vector2(-5.16556, -27.3746)
 
 [node name="ikTargets" type="Node2D" parent="."]
 
 [node name="footRT" type="Node2D" parent="ikTargets"]
-position = Vector2(-60, 231)
+position = Vector2(-31, 235)
 
 [node name="footLA" type="Node2D" parent="ikTargets/footRT"]
 position = Vector2(74, -9)
@@ -413,3 +419,25 @@ position = Vector2(82, -80)
 
 [node name="headT" type="Node2D" parent="ikTargets"]
 position = Vector2(55, -222)
+
+[node name="charStateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState")]
+script = ExtResource("12_yto7o")
+currentState = NodePath("groundState")
+
+[node name="groundState" type="Node" parent="charStateMachine"]
+script = ExtResource("13_aoehx")
+
+[node name="jumpState" type="Node" parent="charStateMachine"]
+script = ExtResource("14_aoehx")
+
+[node name="fallState" type="Node" parent="charStateMachine"]
+script = ExtResource("15_7y85c")
+
+[node name="debugStateLable" type="Label" parent="." node_paths=PackedStringArray("StateMachine")]
+offset_left = -41.0
+offset_top = -391.0
+offset_right = -1.0
+offset_bottom = -342.0
+theme = ExtResource("16_sm3lv")
+script = ExtResource("16_5rhjr")
+StateMachine = NodePath("../charStateMachine")
