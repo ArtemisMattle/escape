@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bc8skopkv8t6j"]
+[gd_scene load_steps=27 format=3 uid="uid://bc8skopkv8t6j"]
 
 [ext_resource type="Script" uid="uid://gl043mh4yupk" path="res://scripts/playerCon.gd" id="1_slved"]
 [ext_resource type="Texture2D" uid="uid://duh1b6mxh6bvh" path="res://assets/characters/grant/legL.png" id="2_ievb1"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://y7ee7bur5bll" path="res://scripts/ground_state.gd" id="13_2tldl"]
 [ext_resource type="Script" uid="uid://cldnvk40b1w3b" path="res://scripts/jump_state.gd" id="14_wffar"]
 [ext_resource type="Script" uid="uid://bqx3i6xej5wws" path="res://scripts/fall_state.gd" id="15_orhyk"]
+[ext_resource type="Script" uid="uid://gl5e6uye48sj" path="res://scripts/special_grant.gd" id="15_slved"]
 [ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="16_ms3c8"]
 [ext_resource type="Script" uid="uid://bnak2hbeel1v1" path="res://scripts/debug_state_lable.gd" id="17_yxtrn"]
 
@@ -123,7 +124,7 @@ modifications/4 = SubResource("SkeletonModification2DLookAt_8erdi")
 modifications/5 = SubResource("SkeletonModification2DCCDIK_ievb1")
 modifications/6 = SubResource("SkeletonModification2DCCDIK_slved")
 
-[node name="berylBubblegum" type="CharacterBody2D"]
+[node name="grantGrapplinghook" type="CharacterBody2D"]
 script = ExtResource("1_slved")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -133,7 +134,6 @@ shape = SubResource("CapsuleShape2D_5k2vy")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 visible = false
-position = Vector2(1, 0)
 modification_stack = SubResource("SkeletonModificationStack2D_umcca")
 
 [node name="hip" type="Bone2D" parent="Skeleton2D"]
@@ -150,7 +150,7 @@ remote_path = NodePath("../../../sprites/BerylBody")
 position = Vector2(-27.722, 15.0001)
 rotation = 0.011122
 scale = Vector2(0.99999, 0.99999)
-rest = Transform2D(0.999998, 0, 0, 0.999998, -37, 23)
+rest = Transform2D(0.983849, 0.178944, -0.178944, 0.983849, -27.722, 15.0001)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/legR"]
@@ -161,7 +161,7 @@ remote_path = NodePath("../../../../sprites/BerylLegR")
 position = Vector2(14.0029, 89.8508)
 rotation = 0.148719
 scale = Vector2(1.00001, 1.00001)
-rest = Transform2D(1, 0, 0, 1, 14, 91)
+rest = Transform2D(0.9649, -0.262638, 0.262638, 0.9649, 14.003, 89.8509)
 auto_calculate_length_and_angle = false
 length = 80.191
 bone_angle = 96.0618
@@ -175,7 +175,7 @@ remote_path = NodePath("../../../../../sprites/BerylShin")
 position = Vector2(45.278, 10.0001)
 rotation = -0.200755
 scale = Vector2(0.999995, 0.999995)
-rest = Transform2D(0.98822, -0.153024, 0.153024, 0.98822, 28, 15)
+rest = Transform2D(0.997933, 0.0640701, -0.0640701, 0.997933, 45.278, 10.0001)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/legL"]
@@ -184,7 +184,7 @@ remote_path = NodePath("../../../../sprites/BerylLeg")
 
 [node name="shinL" type="Bone2D" parent="Skeleton2D/hip/legL"]
 position = Vector2(13.6099, 93.5941)
-rest = Transform2D(0.988962, 0.148172, -0.148172, 0.988962, 14.0004, 91.0026)
+rest = Transform2D(0.966652, -0.256088, 0.256088, 0.966652, 13.6099, 93.5946)
 auto_calculate_length_and_angle = false
 length = 78.223
 bone_angle = 97.447
@@ -196,11 +196,11 @@ remote_path = NodePath("../../../../../sprites/BerylShin2")
 
 [node name="jacket" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2(-23.722, -162)
-rest = Transform2D(1, 0, 0, 1, -46, -166)
+rest = Transform2D(1, 0, 0, 1, -23.722, -162)
 
 [node name="armR" type="Bone2D" parent="Skeleton2D/hip/jacket"]
 position = Vector2(10, 2)
-rest = Transform2D(0.947706, -0.319119, 0.319119, 0.947706, 10, 2)
+rest = Transform2D(0.950612, 0.31038, -0.31038, 0.950612, 10, 2)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/jacket/armR"]
@@ -211,7 +211,7 @@ remote_path = NodePath("../../../../../sprites/BerylArm")
 position = Vector2(10.6057, 82.4552)
 rotation = 0.542012
 scale = Vector2(0.999999, 0.999999)
-rest = Transform2D(1, 0, 0, 1, 31, 80)
+rest = Transform2D(0.999998, 0, 0, 0.999998, 10.6058, 82.4553)
 auto_calculate_length_and_angle = false
 length = 64.0
 bone_angle = 25.0
@@ -232,7 +232,7 @@ bone_angle = 21.736
 position = Vector2(35.278, 2.00006)
 rotation = -1.04002
 scale = Vector2(0.999998, 0.999998)
-rest = Transform2D(1, 0, 0, 1, 29, -2)
+rest = Transform2D(0.289216, -0.957261, 0.957261, 0.289216, 35.278, 2.00006)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/jacket/armL"]
@@ -243,20 +243,20 @@ remote_path = NodePath("../../../../../sprites/BerylArm2")
 position = Vector2(26.4348, 139.862)
 rotation = 0.542012
 scale = Vector2(1, 1)
-rest = Transform2D(1, 0, 0, 1, 31, 80)
+rest = Transform2D(0.856672, 0.515861, -0.515861, 0.856672, 26.4348, 139.862)
 auto_calculate_length_and_angle = false
 length = 64.0
 bone_angle = 25.0
 
 [node name="neck" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2(-0.72197, -180)
-rest = Transform2D(1, 0, 0, 1, -32, -175)
+rest = Transform2D(1, 0, 0, 1, -0.72197, -180)
 
 [node name="head" type="Bone2D" parent="Skeleton2D/hip/neck"]
 position = Vector2(27, -33)
 rotation = 0.0760435
 scale = Vector2(0.999955, 0.999955)
-rest = Transform2D(1, 0, 0, 1, 8, -46)
+rest = Transform2D(0.999865, -0.0134208, 0.0134208, 0.999865, 27, -33)
 auto_calculate_length_and_angle = false
 length = 32.0
 bone_angle = 0.0
@@ -268,16 +268,16 @@ remote_path = NodePath("../../../../../sprites/BerylHead")
 [node name="sprites" type="Node2D" parent="."]
 
 [node name="BerylLeg" type="Sprite2D" parent="sprites"]
-position = Vector2(47, 10)
-rotation = -0.183245
-scale = Vector2(0.999953, 0.999953)
+position = Vector2(46, 10)
+rotation = -0.188958
+scale = Vector2(0.999987, 0.999987)
 texture = ExtResource("2_ievb1")
 offset = Vector2(49.1011, -86.425)
 
 [node name="BerylShin2" type="Sprite2D" parent="sprites"]
-position = Vector2(54.0462, 104.311)
-rotation = -0.0506044
-scale = Vector2(0.999952, 0.999952)
+position = Vector2(53.5852, 104.273)
+rotation = -0.0552326
+scale = Vector2(0.999986, 0.999986)
 texture = ExtResource("3_slved")
 offset = Vector2(119.922, -171.94)
 
@@ -288,16 +288,16 @@ scale = Vector2(1, 1)
 offset = Vector2(39.2155, -24.8129)
 
 [node name="BerylLegR" type="Sprite2D" parent="sprites"]
-position = Vector2(-26, 15)
-rotation = 0.0815175
+position = Vector2(-27, 15)
+rotation = 0.0751944
 scale = Vector2(0.99999, 0.99999)
 texture = ExtResource("4_1wkvs")
 offset = Vector2(124.712, -84.8057)
 
 [node name="BerylShin" type="Sprite2D" parent="sprites"]
-position = Vector2(-28.8762, 105.889)
-rotation = 0.0413227
-scale = Vector2(0.999989, 0.999989)
+position = Vector2(-29.3014, 105.905)
+rotation = 0.0363334
+scale = Vector2(0.999995, 0.999995)
 texture = ExtResource("3_slved")
 offset = Vector2(117.958, -168.985)
 
@@ -308,9 +308,9 @@ scale = Vector2(0.999993, 0.999993)
 offset = Vector2(39.7733, -39.4803)
 
 [node name="BerylArm2" type="Sprite2D" parent="sprites"]
-position = Vector2(13.278, -160)
-rotation = 0.330395
-scale = Vector2(0.999987, 0.999987)
+position = Vector2(12.278, -160)
+rotation = 0.330061
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("6_ibi6o")
 offset = Vector2(42.7656, 52.3454)
 
@@ -327,7 +327,7 @@ position = Vector2(1, -180)
 offset = Vector2(18, -15)
 
 [node name="BerylBody" type="Sprite2D" parent="sprites"]
-position = Vector2(1.72197, -6.10352e-05)
+position = Vector2(0.72197, -6.10352e-05)
 texture = ExtResource("7_8cc45")
 offset = Vector2(89.6053, -56.0014)
 
@@ -336,23 +336,22 @@ position = Vector2(-22, -162)
 offset = Vector2(45, 70)
 
 [node name="BerylHead" type="Sprite2D" parent="sprites"]
-position = Vector2(28, -213)
-rotation = -0.0135129
-scale = Vector2(0.999919, 0.999919)
+position = Vector2(27, -213)
+rotation = -0.0134218
+scale = Vector2(0.999955, 0.999955)
 texture = ExtResource("8_n7smq")
 offset = Vector2(65.5758, 132.879)
 
 [node name="BerylArm" type="Sprite2D" parent="sprites"]
-position = Vector2(-12, -160)
-rotation = 0.0123624
-scale = Vector2(0.999972, 0.999972)
+position = Vector2(-13, -160)
+rotation = 0.00143418
 texture = ExtResource("9_70whg")
 offset = Vector2(123.738, 50.7336)
 
 [node name="BerylHand" type="Sprite2D" parent="sprites"]
-position = Vector2(-28.403, -78.4974)
-rotation = -0.877759
-scale = Vector2(0.999978, 0.999978)
+position = Vector2(-28.5106, -78.3251)
+rotation = -0.888687
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("10_rnx68")
 offset = Vector2(155.521, -40.8132)
 
@@ -379,9 +378,10 @@ position = Vector2(330, -126)
 [node name="headT" type="Node2D" parent="ikTargets"]
 position = Vector2(176, -215)
 
-[node name="charStateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState")]
+[node name="charStateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState", "specialState")]
 script = ExtResource("12_8erdi")
 currentState = NodePath("groundState")
+specialState = NodePath("specialState")
 
 [node name="groundState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("jumpState", "fallState")]
 script = ExtResource("13_2tldl")
@@ -401,7 +401,13 @@ fallState = NodePath("../fallState")
 script = ExtResource("15_orhyk")
 groundState = NodePath("../groundState")
 
+[node name="specialState" type="Node" parent="charStateMachine"]
+script = ExtResource("15_slved")
+canMove = false
+canSpecial = false
+
 [node name="debugStateLable" type="Label" parent="." node_paths=PackedStringArray("StateMachine")]
+visible = false
 offset_left = -41.0
 offset_top = -391.0
 offset_right = -1.0

@@ -1,0 +1,118 @@
+[gd_scene load_steps=20 format=3 uid="uid://cpfikv2vgfcug"]
+
+[ext_resource type="Script" uid="uid://gcdrrembkg18" path="res://scripts/bubblegum_bubble.gd" id="1_krhqh"]
+[ext_resource type="Texture2D" uid="uid://bt5psi005w4xs" path="res://assets/characters/beryl/bubble.png" id="1_yen62"]
+[ext_resource type="Texture2D" uid="uid://bjqxwkthafc3d" path="res://assets/characters/beryl/bubble/bubble-1.png" id="2_2fa31"]
+[ext_resource type="Texture2D" uid="uid://dpoqnk2rnysti" path="res://assets/characters/beryl/bubble/bubble-2.png" id="3_nejsa"]
+[ext_resource type="Texture2D" uid="uid://djjrxurlrym32" path="res://assets/characters/beryl/bubble/bubble-6.png" id="4_slx7u"]
+[ext_resource type="Texture2D" uid="uid://4cyjd57mjmd" path="res://assets/characters/beryl/bubble/bubble-7.png" id="5_fsqdw"]
+[ext_resource type="Texture2D" uid="uid://d2n2uwruu14r5" path="res://assets/characters/beryl/bubble/pop/bubble-1.png" id="7_sv4yk"]
+[ext_resource type="Texture2D" uid="uid://dpu6uj5mn6nav" path="res://assets/characters/beryl/bubble/pop/bubble-2.png" id="8_scl40"]
+[ext_resource type="Texture2D" uid="uid://c0tc1rf1mmvjw" path="res://assets/characters/beryl/bubble/pop/bubble-3.png" id="9_qgjq3"]
+[ext_resource type="Texture2D" uid="uid://dj1mpv5ofr8un" path="res://assets/characters/beryl/bubble/pop/bubble-4.png" id="10_m2djb"]
+[ext_resource type="Texture2D" uid="uid://u2bylyegd6ld" path="res://assets/characters/beryl/bubble/pop/bubble-5.png" id="11_en7v1"]
+[ext_resource type="Texture2D" uid="uid://bts6tntsuclkl" path="res://assets/characters/beryl/bubble/pop/bubble-6.png" id="12_nedl4"]
+[ext_resource type="Texture2D" uid="uid://p4j67s1spe0b" path="res://assets/characters/beryl/bubble/pop/bubble-7.png" id="13_rqqhn"]
+[ext_resource type="Texture2D" uid="uid://be4au2qvgdsdb" path="res://assets/characters/beryl/bubble/pop/bubble-8.png" id="14_edxj2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yen62"]
+radius = 120.067
+
+[sub_resource type="Animation" id="Animation_vkajx"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_2fa31"), ExtResource("3_nejsa"), ExtResource("3_nejsa"), ExtResource("3_nejsa"), ExtResource("3_nejsa"), ExtResource("4_slx7u"), ExtResource("5_fsqdw"), ExtResource("5_fsqdw")]
+}
+
+[sub_resource type="Animation" id="Animation_rdr4c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_yen62")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_wvnvf"]
+resource_name = "pop"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_sv4yk"), ExtResource("8_scl40"), ExtResource("9_qgjq3"), ExtResource("10_m2djb"), ExtResource("11_en7v1"), ExtResource("12_nedl4"), ExtResource("13_rqqhn"), ExtResource("14_edxj2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.78),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tb7g7"]
+_data = {
+&"RESET": SubResource("Animation_rdr4c"),
+&"idle": SubResource("Animation_vkajx"),
+&"pop": SubResource("Animation_wvnvf")
+}
+
+[node name="bubblegumBubble" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_krhqh")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_yen62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_yen62")
+
+[node name="animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tb7g7")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

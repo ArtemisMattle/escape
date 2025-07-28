@@ -84,8 +84,7 @@ tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAA
 tile_set = SubResource("TileSet_vrbj3")
 
 [node name="berylBubblegum" parent="TileMapLayer" instance=ExtResource("2_ar2xt")]
-position = Vector2(228, 54)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-39, 35)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(573, -718)

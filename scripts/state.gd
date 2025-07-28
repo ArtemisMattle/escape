@@ -2,6 +2,7 @@ extends Node
 class_name State
 
 @export var canMove: bool = true
+@export var canSpecial: bool = true
 
 var character: CharacterBody2D
 var nextState: State
