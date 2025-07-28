@@ -1,0 +1,288 @@
+[gd_scene load_steps=13 format=3 uid="uid://dvgg7sslot1a0"]
+
+[ext_resource type="Texture2D" uid="uid://x81bkigdmna" path="res://assets/enemies/lumberjack/saw.png" id="1_ylo2o"]
+[ext_resource type="Texture2D" uid="uid://btx21e5isn1yn" path="res://assets/enemies/lumberjack/body.png" id="2_828dv"]
+[ext_resource type="Texture2D" uid="uid://boia2873eo8vn" path="res://assets/enemies/lumberjack/foot.png" id="3_nl1d6"]
+[ext_resource type="Texture2D" uid="uid://6m5qsoy2jmw" path="res://assets/enemies/lumberjack/shin.png" id="4_5qet6"]
+[ext_resource type="Texture2D" uid="uid://clp7p24pe3uyx" path="res://assets/enemies/lumberjack/leg.png" id="5_tbmx0"]
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_ylo2o"]
+target_nodepath = NodePath("../ikTargets/sawT")
+tip_nodepath = NodePath("base/body/saw/sawTip")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 1
+joint_data/0/bone2d_node = NodePath("base/body")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -33.0
+joint_data/0/constraint_angle_max = 21.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 2
+joint_data/1/bone2d_node = NodePath("base/body/saw")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = 0.0
+joint_data/1/constraint_angle_max = 0.0
+joint_data/1/constraint_angle_invert = false
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_828dv"]
+target_nodepath = NodePath("../ikTargets/footFT")
+tip_nodepath = NodePath("base/leg/shin/foot")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 4
+joint_data/0/bone2d_node = NodePath("base/leg")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -21.0
+joint_data/0/constraint_angle_max = 95.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 5
+joint_data/1/bone2d_node = NodePath("base/leg/shin")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = 70.0
+joint_data/1/constraint_angle_max = -21.0
+joint_data/1/constraint_angle_invert = true
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_nl1d6"]
+bone_index = 6
+bone2d_node = NodePath("base/leg/shin/foot")
+target_nodepath = NodePath("../ikTargets/footFT/footFLA")
+enable_constraint = true
+constraint_angle_min = -64.0
+constraint_angle_max = 9.0
+constraint_angle_invert = true
+constraint_in_localspace = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_5qet6"]
+target_nodepath = NodePath("../ikTargets/footBT")
+tip_nodepath = NodePath("base/backleg/shin/foot")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 7
+joint_data/0/bone2d_node = NodePath("base/backleg")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -21.0
+joint_data/0/constraint_angle_max = 95.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 8
+joint_data/1/bone2d_node = NodePath("base/backleg/shin")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = 70.0
+joint_data/1/constraint_angle_max = -21.0
+joint_data/1/constraint_angle_invert = true
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_tbmx0"]
+bone_index = 9
+bone2d_node = NodePath("base/backleg/shin/foot")
+target_nodepath = NodePath("../ikTargets/footBT/footBLA")
+enable_constraint = true
+constraint_angle_min = -64.0
+constraint_angle_max = 9.0
+constraint_angle_invert = true
+constraint_in_localspace = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_yik1j"]
+enabled = true
+modification_count = 5
+modifications/0 = SubResource("SkeletonModification2DCCDIK_ylo2o")
+modifications/1 = SubResource("SkeletonModification2DCCDIK_828dv")
+modifications/2 = SubResource("SkeletonModification2DLookAt_nl1d6")
+modifications/3 = SubResource("SkeletonModification2DCCDIK_5qet6")
+modifications/4 = SubResource("SkeletonModification2DLookAt_tbmx0")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pw6kl"]
+radius = 43.1741
+
+[node name="lumberjack" type="Node2D"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+visible = false
+modification_stack = SubResource("SkeletonModificationStack2D_yik1j")
+
+[node name="base" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(-47, -266)
+rest = Transform2D(1, 0, 0, 1, -85, -275)
+
+[node name="body" type="Bone2D" parent="Skeleton2D/base"]
+position = Vector2(31, -6)
+rest = Transform2D(0.999995, 0.00166833, -0.00166833, 0.999995, 30.9999, -6)
+auto_calculate_length_and_angle = false
+length = 100.0
+bone_angle = -90.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/base/body"]
+remote_path = NodePath("../../../../sprites/Body")
+
+[node name="saw" type="Bone2D" parent="Skeleton2D/base/body"]
+position = Vector2(1, -51)
+rest = Transform2D(1, 0, 0, 1, 1, -51)
+auto_calculate_length_and_angle = false
+length = 156.0
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="sawTip" type="Bone2D" parent="Skeleton2D/base/body/saw"]
+position = Vector2(157, 1.99997)
+rest = Transform2D(1, -1.16415e-10, 1.16415e-10, 1, 157, 1.99997)
+
+[node name="leg" type="Bone2D" parent="Skeleton2D/base"]
+position = Vector2(31, -5)
+rest = Transform2D(1, 0, 0, 1, 31, -5)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/base/leg"]
+remote_path = NodePath("../../../../sprites/Leg")
+
+[node name="shin" type="Bone2D" parent="Skeleton2D/base/leg"]
+position = Vector2(108, 96)
+rest = Transform2D(1, 0, 0, 1, 108, 96)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/base/leg/shin"]
+remote_path = NodePath("../../../../../sprites/Shin")
+
+[node name="foot" type="Bone2D" parent="Skeleton2D/base/leg/shin"]
+position = Vector2(-64, 154)
+rest = Transform2D(1, 0, 0, 1, -64, 154)
+auto_calculate_length_and_angle = false
+length = 32.0
+bone_angle = 90.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/base/leg/shin/foot"]
+remote_path = NodePath("../../../../../../sprites/Foot")
+
+[node name="backleg" type="Bone2D" parent="Skeleton2D/base"]
+position = Vector2(31, -4.99988)
+rotation = 0.361663
+scale = Vector2(0.999946, 0.999946)
+rest = Transform2D(1, 0, 0, 1, 31, -5)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/base/backleg"]
+remote_path = NodePath("../../../../sprites/beckleg/Leg")
+
+[node name="shin" type="Bone2D" parent="Skeleton2D/base/backleg"]
+position = Vector2(108.013, 96.0115)
+rotation = -0.366519
+scale = Vector2(1, 1)
+rest = Transform2D(1, 0, 0, 1, 108, 96)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/base/backleg/shin"]
+remote_path = NodePath("../../../../../sprites/beckleg/Shin")
+
+[node name="foot" type="Bone2D" parent="Skeleton2D/base/backleg/shin"]
+position = Vector2(-63.9999, 154)
+rotation = 0.155244
+scale = Vector2(0.999928, 0.999928)
+rest = Transform2D(1, 0, 0, 1, -64, 154)
+auto_calculate_length_and_angle = false
+length = 32.0
+bone_angle = 90.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/base/backleg/shin/foot"]
+remote_path = NodePath("../../../../../../sprites/beckleg/Foot")
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="beckleg" type="Node2D" parent="sprites"]
+modulate = Color(0.585062, 0.585062, 0.585062, 1)
+
+[node name="Foot" type="Sprite2D" parent="sprites/beckleg"]
+position = Vector2(-150, -31)
+scale = Vector2(0.999869, 0.999866)
+texture = ExtResource("3_nl1d6")
+offset = Vector2(20, -216)
+
+[node name="Shin" type="Sprite2D" parent="sprites/beckleg"]
+position = Vector2(-13.3055, -126.517)
+rotation = 0.567035
+scale = Vector2(0.999938, 0.999938)
+texture = ExtResource("4_5qet6")
+offset = Vector2(-50, -66)
+
+[node name="Leg" type="Sprite2D" parent="sprites/beckleg"]
+position = Vector2(-16, -271)
+rotation = 0.825504
+scale = Vector2(0.999945, 0.999945)
+texture = ExtResource("5_tbmx0")
+offset = Vector2(60, 31)
+
+[node name="Body" type="Sprite2D" parent="sprites"]
+position = Vector2(-16, -272)
+rotation = 0.0144066
+scale = Vector2(0.999975, 0.999975)
+texture = ExtResource("2_828dv")
+offset = Vector2(60, 31)
+
+[node name="damageArea" type="Area2D" parent="sprites/Body"]
+visible = false
+position = Vector2(102.098, 215.746)
+rotation = -0.366519
+scale = Vector2(1.00002, 1.00002)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprites/Body/damageArea"]
+position = Vector2(149, -225)
+shape = SubResource("CircleShape2D_pw6kl")
+debug_color = Color(0.990307, 0, 0.172719, 0.42)
+
+[node name="Saw" type="Sprite2D" parent="sprites/Body"]
+z_index = -1
+position = Vector2(158, -49)
+texture = ExtResource("1_ylo2o")
+offset = Vector2(-98, 80)
+
+[node name="Foot" type="Sprite2D" parent="sprites"]
+position = Vector2(66, -30)
+rotation = -0.000277628
+scale = Vector2(1.00256, 0.997833)
+texture = ExtResource("3_nl1d6")
+offset = Vector2(20, -216)
+
+[node name="Shin" type="Sprite2D" parent="sprites"]
+position = Vector2(105.076, -192.127)
+rotation = -0.157356
+scale = Vector2(0.999998, 0.999993)
+texture = ExtResource("4_5qet6")
+offset = Vector2(-50, -66)
+
+[node name="Leg" type="Sprite2D" parent="sprites"]
+position = Vector2(-16, -271)
+rotation = -0.149252
+scale = Vector2(0.999995, 0.999995)
+texture = ExtResource("5_tbmx0")
+offset = Vector2(60, 31)
+
+[node name="ikTargets" type="Node2D" parent="."]
+
+[node name="sawT" type="Node2D" parent="ikTargets"]
+position = Vector2(164, -325)
+
+[node name="footFT" type="Node2D" parent="ikTargets"]
+position = Vector2(66, -30)
+
+[node name="footFLA" type="Node2D" parent="ikTargets/footFT"]
+position = Vector2(-10, 50)
+
+[node name="footBT" type="Node2D" parent="ikTargets"]
+position = Vector2(-150, -31)
+
+[node name="footBLA" type="Node2D" parent="ikTargets/footBT"]
+position = Vector2(0, 30)

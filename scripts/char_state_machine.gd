@@ -16,6 +16,7 @@ func _ready() -> void:
 		if (child is State):
 			States.append(child)
 			child.character = character
+			child.stateInit()
 		else:
 			push_warning("Child " + child.name + " is not a valid State for charStateMachine for " + get_parent().name)
 	currentState.onEnter()

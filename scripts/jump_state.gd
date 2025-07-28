@@ -9,7 +9,7 @@ func onEnter() -> void:
 		push_error("fallState " + fallState.name + " for " + name + " is not a valid State")
 
 func stateInput(event: InputEvent) -> void:
-	if event.is_action_released("jump"):
+	if event.is_action_released("jump") or event.is_action_pressed("down"):
 		character.velocity.y = 0.0
 		nextState = fallState
 

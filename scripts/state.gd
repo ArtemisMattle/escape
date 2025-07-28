@@ -7,6 +7,9 @@ class_name State
 var character: CharacterBody2D
 var nextState: State
 
+func stateInit() -> void:
+	pass
+
 func onEnter() -> void:
 	pass
 

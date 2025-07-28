@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://cpfikv2vgfcug"]
+[gd_scene load_steps=19 format=3 uid="uid://cpfikv2vgfcug"]
 
 [ext_resource type="Script" uid="uid://gcdrrembkg18" path="res://scripts/bubblegum_bubble.gd" id="1_krhqh"]
-[ext_resource type="Texture2D" uid="uid://bt5psi005w4xs" path="res://assets/characters/beryl/bubble.png" id="1_yen62"]
 [ext_resource type="Texture2D" uid="uid://bjqxwkthafc3d" path="res://assets/characters/beryl/bubble/bubble-1.png" id="2_2fa31"]
 [ext_resource type="Texture2D" uid="uid://dpoqnk2rnysti" path="res://assets/characters/beryl/bubble/bubble-2.png" id="3_nejsa"]
 [ext_resource type="Texture2D" uid="uid://djjrxurlrym32" path="res://assets/characters/beryl/bubble/bubble-6.png" id="4_slx7u"]
@@ -17,6 +16,21 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yen62"]
 radius = 120.067
+
+[sub_resource type="Animation" id="Animation_rdr4c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2fa31")]
+}
 
 [sub_resource type="Animation" id="Animation_vkajx"]
 resource_name = "idle"
@@ -36,33 +50,6 @@ tracks/0/keys = {
 "values": [ExtResource("2_2fa31"), ExtResource("3_nejsa"), ExtResource("3_nejsa"), ExtResource("3_nejsa"), ExtResource("3_nejsa"), ExtResource("4_slx7u"), ExtResource("5_fsqdw"), ExtResource("5_fsqdw")]
 }
 
-[sub_resource type="Animation" id="Animation_rdr4c"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_yen62")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_wvnvf"]
 resource_name = "pop"
 length = 0.8
@@ -79,17 +66,19 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("7_sv4yk"), ExtResource("8_scl40"), ExtResource("9_qgjq3"), ExtResource("10_m2djb"), ExtResource("11_en7v1"), ExtResource("12_nedl4"), ExtResource("13_rqqhn"), ExtResource("14_edxj2")]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:visible")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.78),
+"times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"values": [{
+"args": [],
+"method": &"deactivate"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tb7g7"]
@@ -104,9 +93,9 @@ collision_mask = 3
 script = ExtResource("1_krhqh")
 
 [node name="sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_yen62")
+texture = ExtResource("2_2fa31")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collider" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_yen62")
 
