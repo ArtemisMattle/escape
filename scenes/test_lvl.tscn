@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://c7eyb8qjjplq1"]
+[gd_scene load_steps=10 format=4 uid="uid://c7eyb8qjjplq1"]
 
 [ext_resource type="Texture2D" uid="uid://p7qh24r0183m" path="res://assets/tiles/testTile.png" id="1_n1f72"]
 [ext_resource type="PackedScene" uid="uid://cjd4r0df4v6sa" path="res://scenes/beryl_bubblegum.tscn" id="2_ar2xt"]
+[ext_resource type="Shader" uid="uid://dyd154lg3obsp" path="res://shaders/testCobble.gdshader" id="2_vrbj3"]
 [ext_resource type="Texture2D" uid="uid://b056w8e0ps0cu" path="res://assets/tiles/cobbleTest.png" id="2_xfjps"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfjps"]
@@ -17,6 +18,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_xfjps")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vrbj3"]
+shader = ExtResource("2_vrbj3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iu4s3"]
 texture = ExtResource("2_xfjps")

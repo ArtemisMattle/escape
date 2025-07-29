@@ -709,7 +709,7 @@ remote_path = NodePath("../../../../../../sprites/Foot")
 [node name="backleg" type="Bone2D" parent="Skeleton2D/base"]
 position = Vector2(31, -4.99988)
 rotation = 0.534417
-scale = Vector2(0.99986, 0.99986)
+scale = Vector2(0.999859, 0.999859)
 rest = Transform2D(1, 0, 0, 1, 31, -5)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/base/backleg"]
@@ -742,29 +742,29 @@ remote_path = NodePath("../../../../../../sprites/beckleg/Foot")
 modulate = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="Foot" type="Sprite2D" parent="sprites/beckleg"]
-position = Vector2(-121.869, -38.963)
-rotation = 0.0274343
+position = Vector2(19.3237, -27.4779)
+rotation = -0.0845368
 scale = Vector2(1.00031, 1.00031)
 texture = ExtResource("3_nl1d6")
 offset = Vector2(20, -216)
 
 [node name="Shin" type="Sprite2D" parent="sprites/beckleg"]
-position = Vector2(4.72955, -147.268)
-rotation = 0.469199
+position = Vector2(84.285, -180.896)
+rotation = 0.00661956
 scale = Vector2(0.999716, 0.999716)
 texture = ExtResource("4_5qet6")
 offset = Vector2(-50, -66)
 
 [node name="Leg" type="Sprite2D" parent="sprites/beckleg"]
-position = Vector2(3.5325, -289.429)
-rotation = 0.835718
-scale = Vector2(0.99986, 0.99986)
+position = Vector2(-1.20375, -294.486)
+rotation = 0.198972
+scale = Vector2(0.999859, 0.999859)
 texture = ExtResource("5_tbmx0")
 offset = Vector2(60, 31)
 
 [node name="Body" type="Sprite2D" parent="sprites"]
-position = Vector2(3.5325, -290.429)
-rotation = -0.0137695
+position = Vector2(-1.20376, -295.486)
+rotation = -0.0126191
 scale = Vector2(0.999771, 0.999771)
 texture = ExtResource("2_828dv")
 offset = Vector2(60, 31)
@@ -787,22 +787,22 @@ texture = ExtResource("1_ylo2o")
 offset = Vector2(-98, 80)
 
 [node name="Foot" type="Sprite2D" parent="sprites"]
-position = Vector2(72.6262, -34.8096)
-rotation = 0.00747951
+position = Vector2(-71.9563, -74.8174)
+rotation = 0.0263212
 scale = Vector2(1.00885, 1.00885)
 texture = ExtResource("3_nl1d6")
 offset = Vector2(20, -216)
 
 [node name="Shin" type="Sprite2D" parent="sprites"]
-position = Vector2(114.453, -195.529)
-rotation = -0.139302
+position = Vector2(66.8098, -166.055)
+rotation = 0.595271
 scale = Vector2(0.999676, 0.999676)
 texture = ExtResource("4_5qet6")
 offset = Vector2(-50, -66)
 
 [node name="Leg" type="Sprite2D" parent="sprites"]
-position = Vector2(3.53252, -289.429)
-rotation = -0.0230489
+position = Vector2(-1.20374, -294.486)
+rotation = 0.358237
 scale = Vector2(0.999839, 0.999839)
 texture = ExtResource("5_tbmx0")
 offset = Vector2(60, 31)

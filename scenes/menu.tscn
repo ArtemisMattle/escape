@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bq0w0hygnhwwx"]
+[gd_scene load_steps=4 format=3 uid="uid://bq0w0hygnhwwx"]
 
+[ext_resource type="Script" uid="uid://bpg0j2l6mfdpb" path="res://scripts/menu.gd" id="1_con2f"]
 [ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="1_yqeox"]
+[ext_resource type="PackedScene" uid="uid://os3vfshqhret" path="res://scenes/settings.tscn" id="2_vjb58"]
 
 [node name="menu" type="Node2D"]
+script = ExtResource("1_con2f")
 
 [node name="edge" type="MarginContainer" parent="."]
 offset_right = 1280.0
@@ -38,6 +41,10 @@ text = "Play
 custom_minimum_size = Vector2(210, 42)
 layout_mode = 2
 size_flags_horizontal = 4
-disabled = true
 text = "Settings
 "
+
+[node name="Settings" parent="." instance=ExtResource("2_vjb58")]
+visible = false
+
+[connection signal="pressed" from="edge/centerer/stack/settings" to="." method="_on_settings_pressed"]

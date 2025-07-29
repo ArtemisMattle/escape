@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://os3vfshqhret"]
+[gd_scene load_steps=5 format=3 uid="uid://os3vfshqhret"]
 
 [ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://bb5w6ntltxke5" path="res://scripts/settings.gd" id="2_6wm04"]
+[ext_resource type="PackedScene" uid="uid://j4r1mqf56076" path="res://scenes/volume.tscn" id="2_r6d6q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wm04"]
+bg_color = Color(0.309804, 0.309804, 0.309804, 0.698039)
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -10,21 +15,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5p8wc")
+script = ExtResource("2_6wm04")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="background" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6wm04")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="rebind" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="rebind" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 42)
 layout_mode = 2
 text = "Rebind"
 
-[node name="back" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="back" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 42)
 layout_mode = 2
 text = "Back"
+
+[node name="volume" parent="CenterContainer/HBoxContainer" instance=ExtResource("2_r6d6q")]
+layout_mode = 2
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/back" to="." method="_on_back_pressed"]

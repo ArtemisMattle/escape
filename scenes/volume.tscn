@@ -1,0 +1,131 @@
+[gd_scene load_steps=10 format=3 uid="uid://j4r1mqf56076"]
+
+[ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="1_mch7p"]
+[ext_resource type="Texture2D" uid="uid://dp6pibeij35ll" path="res://assets/uiElements/soundMaster.png" id="3_gocru"]
+[ext_resource type="Script" uid="uid://ovuhoh17sxno" path="res://scripts/volume.gd" id="3_kniqo"]
+[ext_resource type="Texture2D" uid="uid://l8aau5eghnco" path="res://assets/uiElements/soundMasterMute.png" id="4_wv35w"]
+[ext_resource type="Texture2D" uid="uid://bte04y0h23rjq" path="res://assets/uiElements/soundSFX.png" id="5_1ohds"]
+[ext_resource type="Texture2D" uid="uid://dfaw6gbucwm4c" path="res://assets/uiElements/soundSFXMute.png" id="6_lhf5r"]
+[ext_resource type="Texture2D" uid="uid://hd4s2l712hk7" path="res://assets/uiElements/soundMusic.png" id="7_d5iur"]
+[ext_resource type="Texture2D" uid="uid://drui2qn0od40n" path="res://assets/uiElements/soundMusicMute.png" id="8_fqi84"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mch7p"]
+bg_color = Color(0.6, 0.329412, 0.737255, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="volume" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 400)
+mouse_filter = 1
+theme = ExtResource("1_mch7p")
+theme_override_styles/panel = SubResource("StyleBoxFlat_mch7p")
+script = ExtResource("3_kniqo")
+
+[node name="volume" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="spacer" type="Control" parent="volume"]
+layout_mode = 2
+
+[node name="audioMaster" type="VBoxContainer" parent="volume"]
+layout_mode = 2
+
+[node name="masterSpace" type="Container" parent="volume/audioMaster"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="volume" type="VSlider" parent="volume/audioMaster" groups=["buttonHover"]]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+mouse_filter = 1
+max_value = 1.2
+step = 0.001
+value = 1.0
+
+[node name="masterSpace2" type="Container" parent="volume/audioMaster"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="masterMute" type="TextureButton" parent="volume/audioMaster"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("3_gocru")
+texture_pressed = ExtResource("4_wv35w")
+
+[node name="masterSpace3" type="Container" parent="volume/audioMaster"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="audioSFX" type="VBoxContainer" parent="volume"]
+layout_mode = 2
+
+[node name="sfxSpace" type="Container" parent="volume/audioSFX"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="volume" type="VSlider" parent="volume/audioSFX" groups=["buttonHover"]]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+mouse_filter = 1
+max_value = 1.2
+step = 0.001
+value = 1.0
+
+[node name="sfxSpace2" type="Container" parent="volume/audioSFX"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="sfxMute" type="TextureButton" parent="volume/audioSFX"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("5_1ohds")
+texture_pressed = ExtResource("6_lhf5r")
+
+[node name="sfxSpace3" type="Container" parent="volume/audioSFX"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="audioMusic" type="VBoxContainer" parent="volume"]
+layout_mode = 2
+
+[node name="musicSpace" type="Container" parent="volume/audioMusic"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="volume" type="VSlider" parent="volume/audioMusic" groups=["buttonHover"]]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+mouse_filter = 1
+max_value = 1.2
+step = 0.001
+value = 1.0
+
+[node name="musicSpace2" type="Container" parent="volume/audioMusic"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="musicMute" type="TextureButton" parent="volume/audioMusic"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("7_d5iur")
+texture_pressed = ExtResource("8_fqi84")
+
+[node name="musicSpace3" type="Container" parent="volume/audioMusic"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="spacer2" type="Control" parent="volume"]
+layout_mode = 2
+
+[connection signal="value_changed" from="volume/audioMaster/volume" to="." method="_on_master_value_changed"]
+[connection signal="toggled" from="volume/audioMaster/masterMute" to="." method="_on_masterMute_toggled"]
+[connection signal="value_changed" from="volume/audioSFX/volume" to="." method="_on_sfx_value_changed"]
+[connection signal="toggled" from="volume/audioSFX/sfxMute" to="." method="_on_sfxMute_toggled"]
+[connection signal="value_changed" from="volume/audioMusic/volume" to="." method="_on_music_value_changed"]
+[connection signal="toggled" from="volume/audioMusic/musicMute" to="." method="_on_musicMute_toggled"]

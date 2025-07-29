@@ -6,6 +6,7 @@
 [resource]
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_3f3va")
+HBoxContainer/constants/separation = 24
 Label/colors/font_color = Color(0.469064, 0.105588, 0.499287, 1)
 Label/constants/outline_size = 7
 Label/font_sizes/font_size = 24
