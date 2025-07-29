@@ -1,11 +1,14 @@
 shader_type canvas_item;
 
+uniform sampler2D tex;
+
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
 void fragment() {
-	// Called for every pixel the material is visible on.
+	COLOR *= vec4((vec3(1.3) - texture(tex, mod(UV * vec2(3.0, 9.0), 1.0)).xyz), 1.0);
+	COLOR += vec4(vec3(0.8) - texture(tex, mod(UV * vec2(3.0, 9.0) + vec2(1.05, 1.13), 1.0)).xyz, 0) * 0.1;
 }
 
 //void light() {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c7eyb8qjjplq1"]
+[gd_scene load_steps=13 format=4 uid="uid://c7eyb8qjjplq1"]
 
 [ext_resource type="Texture2D" uid="uid://p7qh24r0183m" path="res://assets/tiles/testTile.png" id="1_n1f72"]
 [ext_resource type="PackedScene" uid="uid://cjd4r0df4v6sa" path="res://scenes/beryl_bubblegum.tscn" id="2_ar2xt"]
@@ -17,18 +17,174 @@ physics_layer_0/collision_layer = 0
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_xfjps")
 
+[sub_resource type="Gradient" id="Gradient_xfjps"]
+offsets = PackedFloat32Array(0.289562, 0.747475)
+colors = PackedColorArray(0.582376, 0.582376, 0.582376, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xfjps"]
+noise_type = 2
+frequency = 0.003
+fractal_type = 0
+cellular_distance_function = 3
+cellular_jitter = 0.5
+cellular_return_type = 6
+domain_warp_enabled = true
+domain_warp_amplitude = 10.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vrbj3"]
+seamless = true
+seamless_blend_skirt = 0.493
+color_ramp = SubResource("Gradient_xfjps")
+noise = SubResource("FastNoiseLite_xfjps")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vrbj3"]
 shader = ExtResource("2_vrbj3")
+shader_parameter/tex = SubResource("NoiseTexture2D_vrbj3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iu4s3"]
 texture = ExtResource("2_xfjps")
-texture_region_size = Vector2i(128, 128)
+texture_region_size = Vector2i(256, 256)
+0:0/next_alternative_id = 4
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/1/terrain_set = 0
+0:0/1/terrain = 0
+0:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:0/1/terrains_peering_bit/bottom_side = 0
+0:0/1/terrains_peering_bit/bottom_left_corner = 0
+0:0/1/terrains_peering_bit/left_side = 0
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/2/terrain_set = 0
+0:0/2/terrain = 0
+0:0/2/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:0/2/terrains_peering_bit/right_side = 0
+0:0/2/terrains_peering_bit/top_side = 0
+0:0/2/terrains_peering_bit/top_right_corner = 0
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/3/terrain_set = 0
+0:0/3/terrain = 0
+0:0/3/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:0/3/terrains_peering_bit/left_side = 0
+0:0/3/terrains_peering_bit/top_left_corner = 0
+0:0/3/terrains_peering_bit/top_side = 0
+1:0/next_alternative_id = 4
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/bottom_right_corner = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/terrains_peering_bit/bottom_left_corner = 0
+1:0/0/terrains_peering_bit/left_side = 0
+1:0/1 = 1
+1:0/1/flip_v = true
+1:0/1/terrain_set = 0
+1:0/1/terrain = 0
+1:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+1:0/1/terrains_peering_bit/right_side = 0
+1:0/1/terrains_peering_bit/left_side = 0
+1:0/1/terrains_peering_bit/top_left_corner = 0
+1:0/1/terrains_peering_bit/top_side = 0
+1:0/1/terrains_peering_bit/top_right_corner = 0
+0:1/next_alternative_id = 4
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/terrains_peering_bit/bottom_right_corner = 0
+0:1/0/terrains_peering_bit/bottom_side = 0
+0:1/0/terrains_peering_bit/bottom_left_corner = 0
+0:1/0/terrains_peering_bit/left_side = 0
+0:1/0/terrains_peering_bit/top_side = 0
+0:1/0/terrains_peering_bit/top_right_corner = 0
+0:1/1 = 1
+0:1/1/flip_h = true
+0:1/1/terrain_set = 0
+0:1/1/terrain = 0
+0:1/1/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:1/1/terrains_peering_bit/right_side = 0
+0:1/1/terrains_peering_bit/bottom_right_corner = 0
+0:1/1/terrains_peering_bit/bottom_side = 0
+0:1/1/terrains_peering_bit/bottom_left_corner = 0
+0:1/1/terrains_peering_bit/left_side = 0
+0:1/1/terrains_peering_bit/top_left_corner = 0
+0:1/1/terrains_peering_bit/top_side = 0
+0:1/2 = 2
+0:1/2/flip_v = true
+0:1/2/terrain_set = 0
+0:1/2/terrain = 0
+0:1/2/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:1/2/terrains_peering_bit/right_side = 0
+0:1/2/terrains_peering_bit/bottom_right_corner = 0
+0:1/2/terrains_peering_bit/bottom_side = 0
+0:1/2/terrains_peering_bit/left_side = 0
+0:1/2/terrains_peering_bit/top_left_corner = 0
+0:1/2/terrains_peering_bit/top_side = 0
+0:1/2/terrains_peering_bit/top_right_corner = 0
+0:1/3 = 3
+0:1/3/flip_h = true
+0:1/3/flip_v = true
+0:1/3/terrain_set = 0
+0:1/3/terrain = 0
+0:1/3/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:1/3/terrains_peering_bit/right_side = 0
+0:1/3/terrains_peering_bit/bottom_side = 0
+0:1/3/terrains_peering_bit/bottom_left_corner = 0
+0:1/3/terrains_peering_bit/left_side = 0
+0:1/3/terrains_peering_bit/top_left_corner = 0
+0:1/3/terrains_peering_bit/top_side = 0
+0:1/3/terrains_peering_bit/top_right_corner = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+1:1/0/terrains_peering_bit/right_side = 0
+1:1/0/terrains_peering_bit/bottom_right_corner = 0
+1:1/0/terrains_peering_bit/bottom_side = 0
+1:1/0/terrains_peering_bit/bottom_left_corner = 0
+1:1/0/terrains_peering_bit/left_side = 0
+1:1/0/terrains_peering_bit/top_left_corner = 0
+1:1/0/terrains_peering_bit/top_side = 0
+1:1/0/terrains_peering_bit/top_right_corner = 0
+2:2/next_alternative_id = 2
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:2/0/terrains_peering_bit/bottom_side = 0
+2:2/0/terrains_peering_bit/bottom_left_corner = 0
+2:2/0/terrains_peering_bit/left_side = 0
+2:2/0/terrains_peering_bit/top_left_corner = 0
+2:2/0/terrains_peering_bit/top_side = 0
+2:2/1 = 1
+2:2/1/flip_h = true
+2:2/1/terrain_set = 0
+2:2/1/terrain = 0
+2:2/1/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:2/1/terrains_peering_bit/right_side = 0
+2:2/1/terrains_peering_bit/bottom_right_corner = 0
+2:2/1/terrains_peering_bit/bottom_side = 0
+2:2/1/terrains_peering_bit/top_side = 0
+2:2/1/terrains_peering_bit/top_right_corner = 0
 
 [sub_resource type="TileSet" id="TileSet_gsbc8"]
-tile_size = Vector2i(128, 128)
+tile_size = Vector2i(256, 256)
 physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_iu4s3")
 
 [node name="testLvl" type="Node2D"]
@@ -39,12 +195,11 @@ tile_set = SubResource("TileSet_vrbj3")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 material = SubResource("ShaderMaterial_vrbj3")
-tile_map_data = PackedByteArray("AAD5/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD7/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAD//wUAAAAAAAAAAAD+/wUAAAAAAAAAAAD9/wUAAAAAAAAAAAD8/wUAAAAAAAAAAAD7/wUAAAAAAAAAAAD6/wUAAAAAAAAAAAD5/wUAAAAAAAAAAAD5/wYAAAAAAAAAAAD6/wYAAAAAAAAAAAD7/wYAAAAAAAAAAAD8/wYAAAAAAAAAAAD9/wYAAAAAAAAAAAD+/wYAAAAAAAAAAAD//wYAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAADAAcAAAAAAAAAAAACAAcAAAAAAAAAAAABAAcAAAAAAAAAAAAAAAcAAAAAAAAAAAD//wcAAAAAAAAAAAD+/wcAAAAAAAAAAAD9/wcAAAAAAAAAAAD8/wcAAAAAAAAAAAD7/wcAAAAAAAAAAAD6/wcAAAAAAAAAAAD5/wcAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD8/wIAAAAAAAAAAAD8/wMAAAACAAIAAQD8/wQAAAAAAAAAAgD9/wIAAAABAAAAAAD9/wMAAAABAAEAAAD9/wQAAAABAAAAAQD+/wIAAAABAAAAAAD+/wMAAAABAAEAAAD+/wQAAAABAAAAAQD//wIAAAABAAAAAAD//wMAAAABAAEAAAD//wQAAAABAAAAAQAAAAIAAAABAAAAAAAAAAMAAAABAAEAAAAAAAQAAAABAAAAAQABAAIAAAABAAAAAAABAAMAAAABAAEAAAABAAQAAAABAAAAAQACAAIAAAABAAAAAAACAAMAAAABAAEAAAACAAQAAAABAAAAAQADAAIAAAABAAAAAAADAAMAAAABAAEAAAADAAQAAAAAAAEAAgAEAAIAAAABAAAAAAAEAAMAAAABAAEAAAAEAAQAAAABAAEAAAAFAAIAAAABAAAAAAAFAAMAAAABAAEAAAAFAAQAAAABAAEAAAAGAAQAAAABAAEAAAAGAAMAAAAAAAEAAQAGAAIAAAAAAAAAAQAHAAMAAAABAAAAAAAHAAQAAAABAAEAAAAIAAQAAAABAAEAAAAIAAMAAAABAAAAAAAIAAUAAAABAAAAAQAHAAUAAAABAAAAAQAGAAUAAAABAAAAAQAFAAUAAAABAAAAAQAEAAUAAAABAAAAAQADAAUAAAAAAAAAAgAJAAMAAAABAAAAAAAJAAQAAAABAAEAAAAKAAQAAAABAAEAAAAKAAUAAAABAAAAAQAJAAUAAAABAAAAAQALAAQAAAAAAAEAAwAMAAQAAAABAAAAAQANAAQAAAABAAAAAQAOAAQAAAABAAAAAQAPAAQAAAABAAAAAQAQAAMAAAABAAAAAAARAAMAAAABAAAAAAASAAMAAAAAAAEAAAATAAMAAAAAAAEAAwAUAAIAAAABAAEAAAAVAAIAAAAAAAEAAwAVAAEAAAABAAEAAAAWAAEAAAAAAAEAAwAWAAAAAAABAAEAAAAXAAAAAAACAAIAAAALAAUAAAAAAAAAAwAQAAQAAAABAAAAAQARAAQAAAABAAAAAQAUAAMAAAABAAAAAQAVAAMAAAAAAAAAAwAWAAIAAAAAAAAAAwAXAAEAAAAAAAAAAwAXAP//AAACAAIAAAAWAP//AAABAAEAAAAVAP//AAACAAIAAQAVAAAAAAAAAAEAAAAUAAAAAAAAAAAAAAAUAAEAAAAAAAEAAAATAAEAAAAAAAAAAAATAAIAAAAAAAEAAAASAAIAAAAAAAAAAAAPAAMAAAABAAAAAAAOAAMAAAABAAAAAAANAAMAAAABAAAAAAAMAAMAAAABAAAAAAALAAMAAAABAAAAAAAKAAMAAAABAAAAAAASAAQAAAABAAAAAQATAAQAAAAAAAAAAwAWAP7/AAABAAEAAAAVAP7/AAACAAIAAQAWAP3/AAABAAEAAAAXAP3/AAACAAIAAAAXAPz/AAACAAIAAAAXAPv/AAAAAAEAAwAWAPv/AAABAAEAAAAWAPr/AAABAAEAAAAWAPz/AAABAAEAAAAXAP7/AAACAAIAAAAYAPr/AAAAAAAAAQAXAPr/AAAAAAEAAQAXAPn/AAAAAAAAAQAWAPn/AAABAAAAAAAVAPz/AAACAAIAAQAVAP3/AAACAAIAAQAVAPv/AAACAAIAAQAVAPr/AAACAAIAAQAVAPn/AAAAAAAAAAAYAPv/AAAAAAAAAwA=")
 tile_set = SubResource("TileSet_gsbc8")
 
 [node name="berylBubblegum" parent="." instance=ExtResource("2_ar2xt")]
-position = Vector2(-39, 35)
 
 [node name="Camera2D" type="Camera2D" parent="berylBubblegum"]
-position = Vector2(612, -753)
-zoom = Vector2(0.25, 0.25)
+position = Vector2(217, -58)
+position_smoothing_enabled = true
