@@ -840,7 +840,7 @@ offset = Vector2(-98, 80)
 
 [node name="Foot" type="Sprite2D" parent="sprites"]
 position = Vector2(69.0022, -33.0083)
-rotation = 0.0189604
+rotation = 0.0189603
 scale = Vector2(1.00883, 1.00883)
 texture = ExtResource("3_nl1d6")
 offset = Vector2(20, -216)
