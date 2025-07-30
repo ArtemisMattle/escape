@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cjd4r0df4v6sa"]
+[gd_scene load_steps=31 format=3 uid="uid://cjd4r0df4v6sa"]
 
 [ext_resource type="Texture2D" uid="uid://cmb8bnmrxauix" path="res://assets/characters/beryl/berylShin.png" id="1_5k2vy"]
 [ext_resource type="Script" uid="uid://gl043mh4yupk" path="res://scripts/playerCon.gd" id="1_dgmor"]
@@ -20,6 +20,7 @@
 [ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="16_sm3lv"]
 [ext_resource type="PackedScene" uid="uid://cpfikv2vgfcug" path="res://scenes/bubblegum_bubble.tscn" id="17_ch804"]
 [ext_resource type="Script" uid="uid://bf3axi33gs0tw" path="res://scripts/jump_special_beryl.gd" id="18_umcca"]
+[ext_resource type="BitMap" uid="uid://daifi15wn54df" path="res://assets/characters/button.png" id="21_w1oda"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5k2vy"]
 radius = 123.0
@@ -142,6 +143,7 @@ modifications/6 = SubResource("SkeletonModification2DLookAt_7y85c")
 [node name="berylBubblegum" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_dgmor")
+charColour = Color(0, 0.833816, 0.835905, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5k2vy")
@@ -464,4 +466,13 @@ theme_override_font_sizes/font_size = 64
 script = ExtResource("16_5rhjr")
 Machine = NodePath("../charStateMachine")
 
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -131.0
+offset_top = -355.0
+offset_right = 125.0
+offset_bottom = -99.0
+texture_click_mask = ExtResource("21_w1oda")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="charStateMachine/groundState/coyote" to="charStateMachine/groundState" method="coyote"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_activate"]

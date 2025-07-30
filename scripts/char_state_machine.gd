@@ -28,16 +28,18 @@ func _ready() -> void:
 	SignalBus.enableSpecial.connect(enableSpecial)
 
 func _input(event: InputEvent) -> void:
-	currentState.stateInput(event)
-	
-	if event.is_action_pressed("special") and currentState.canSpecial and specialAvailable:
-		specialState.lastState = currentState
-		switchState(specialState)
+	if character.active:
+		currentState.stateInput(event)
+		
+		if event.is_action_pressed("special") and currentState.canSpecial and specialAvailable:
+			specialState.lastState = currentState
+			switchState(specialState)
 
 func _process(delta: float) -> void:
-	currentState.stateProcess(delta)
-	if currentState.nextState != null:
-		switchState(currentState.nextState)
+	if character.active:
+		currentState.stateProcess(delta)
+		if currentState.nextState != null:
+			switchState(currentState.nextState)
 
 func switchState(nextState : State) -> void:
 	if currentState != null:

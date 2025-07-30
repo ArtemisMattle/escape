@@ -703,7 +703,6 @@ _data = {
 script = ExtResource("1_828dv")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
-visible = false
 modification_stack = SubResource("SkeletonModificationStack2D_yik1j")
 
 [node name="base" type="Bone2D" parent="Skeleton2D"]
@@ -713,7 +712,7 @@ rest = Transform2D(1, 0, 0, 1, -85, -275)
 [node name="body" type="Bone2D" parent="Skeleton2D/base"]
 position = Vector2(31, -5.99988)
 rotation = -0.0131019
-scale = Vector2(0.999768, 0.999768)
+scale = Vector2(0.999767, 0.999767)
 rest = Transform2D(0.999995, 0.00166833, -0.00166833, 0.999995, 30.9999, -6)
 auto_calculate_length_and_angle = false
 length = 100.0
@@ -733,11 +732,17 @@ bone_angle = 0.0
 [node name="sawTip" type="Bone2D" parent="Skeleton2D/base/body/saw"]
 position = Vector2(157, 1.99997)
 rest = Transform2D(1, -1.16415e-10, 1.16415e-10, 1, 157, 1.99997)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/base/body/saw/sawTip"]
+remote_path = NodePath("../../../../../../damageArea")
 
 [node name="leg" type="Bone2D" parent="Skeleton2D/base"]
 position = Vector2(31, -5)
 rotation = 0.0174438
-scale = Vector2(0.999838, 0.999838)
+scale = Vector2(0.999837, 0.999837)
 rest = Transform2D(1, 0, 0, 1, 31, -5)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/base/leg"]
@@ -746,7 +751,7 @@ remote_path = NodePath("../../../../sprites/Leg")
 [node name="shin" type="Bone2D" parent="Skeleton2D/base/leg"]
 position = Vector2(108.744, 96.4468)
 rotation = -0.155572
-scale = Vector2(0.999833, 0.999833)
+scale = Vector2(0.999832, 0.999832)
 rest = Transform2D(1, 0, 0, 1, 108, 96)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/base/leg/shin"]
@@ -776,7 +781,7 @@ remote_path = NodePath("../../../../sprites/beckleg/Leg")
 [node name="shin" type="Bone2D" parent="Skeleton2D/base/backleg"]
 position = Vector2(106.27, 94.4648)
 rotation = -0.220471
-scale = Vector2(0.999841, 0.999841)
+scale = Vector2(0.99984, 0.99984)
 rest = Transform2D(1, 0, 0, 1, 108, 96)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/base/backleg/shin"]
@@ -800,43 +805,32 @@ remote_path = NodePath("../../../../../../sprites/beckleg/Foot")
 modulate = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="Foot" type="Sprite2D" parent="sprites/beckleg"]
-position = Vector2(-143.383, -29.3805)
-rotation = -0.027761
+position = Vector2(-118.965, -40.3338)
+rotation = 0.0347389
 scale = Vector2(1.00029, 1.00029)
 texture = ExtResource("3_nl1d6")
 offset = Vector2(20, -216)
 
 [node name="Shin" type="Sprite2D" parent="sprites/beckleg"]
-position = Vector2(-9.20468, -128.133)
-rotation = 0.542413
-scale = Vector2(0.999696, 0.999696)
+position = Vector2(6.57468, -149.858)
+rotation = 0.45951
+scale = Vector2(0.999695, 0.999695)
 texture = ExtResource("4_5qet6")
 offset = Vector2(-50, -66)
 
 [node name="Leg" type="Sprite2D" parent="sprites/beckleg"]
-position = Vector2(0, -270)
-rotation = 0.908932
+position = Vector2(4, -292)
+rotation = 0.826029
 scale = Vector2(0.999855, 0.999855)
 texture = ExtResource("5_tbmx0")
 offset = Vector2(60, 31)
 
 [node name="Body" type="Sprite2D" parent="sprites"]
-position = Vector2(0, -271)
-rotation = -0.0187638
-scale = Vector2(0.999768, 0.999768)
+position = Vector2(4, -293)
+rotation = -0.0131086
+scale = Vector2(0.999767, 0.999767)
 texture = ExtResource("2_828dv")
 offset = Vector2(60, 31)
-
-[node name="damageArea" type="Area2D" parent="sprites/Body"]
-visible = false
-position = Vector2(102.098, 215.746)
-rotation = -0.366519
-scale = Vector2(1.00002, 1.00002)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sprites/Body/damageArea"]
-position = Vector2(149, -225)
-shape = SubResource("CircleShape2D_pw6kl")
-debug_color = Color(0.990307, 0, 0.172719, 0.42)
 
 [node name="Saw" type="Sprite2D" parent="sprites/Body"]
 z_index = -1
@@ -845,23 +839,23 @@ texture = ExtResource("1_ylo2o")
 offset = Vector2(-98, 80)
 
 [node name="Foot" type="Sprite2D" parent="sprites"]
-position = Vector2(138.481, -41.2903)
-rotation = -0.612178
+position = Vector2(69.0022, -33.0083)
+rotation = 0.0189604
 scale = Vector2(1.00883, 1.00883)
 texture = ExtResource("3_nl1d6")
 offset = Vector2(20, -216)
 
 [node name="Shin" type="Sprite2D" parent="sprites"]
-position = Vector2(131.058, -207.197)
-rotation = -0.438615
-scale = Vector2(0.999671, 0.999671)
+position = Vector2(111.019, -193.677)
+rotation = -0.13812
+scale = Vector2(0.999669, 0.999669)
 texture = ExtResource("4_5qet6")
 offset = Vector2(-50, -66)
 
 [node name="Leg" type="Sprite2D" parent="sprites"]
-position = Vector2(0, -270)
-rotation = -0.278667
-scale = Vector2(0.999838, 0.999838)
+position = Vector2(4, -292)
+rotation = 0.0175344
+scale = Vector2(0.999837, 0.999837)
 texture = ExtResource("5_tbmx0")
 offset = Vector2(60, 31)
 
@@ -886,7 +880,20 @@ position = Vector2(35, 55)
 position = Vector2(150, -100)
 target_position = Vector2(350, 0)
 
+[node name="damageArea" type="Area2D" parent="."]
+position = Vector2(161.284, -344.443)
+rotation = -0.0131086
+scale = Vector2(0.999575, 0.999575)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damageArea"]
+shape = SubResource("CircleShape2D_pw6kl")
+debug_color = Color(0.990307, 0, 0.172719, 0.42)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_yik1j")
 }
+
+[connection signal="body_entered" from="damageArea" to="." method="_on_damage_area_body_entered"]

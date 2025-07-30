@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bc8skopkv8t6j"]
+[gd_scene load_steps=28 format=3 uid="uid://bc8skopkv8t6j"]
 
 [ext_resource type="Script" uid="uid://gl043mh4yupk" path="res://scripts/playerCon.gd" id="1_slved"]
 [ext_resource type="Texture2D" uid="uid://duh1b6mxh6bvh" path="res://assets/characters/grant/legL.png" id="2_ievb1"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://gl5e6uye48sj" path="res://scripts/special_grant.gd" id="15_slved"]
 [ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="16_ms3c8"]
 [ext_resource type="Script" uid="uid://bnak2hbeel1v1" path="res://scripts/debug_state_lable.gd" id="17_yxtrn"]
+[ext_resource type="BitMap" uid="uid://daifi15wn54df" path="res://assets/characters/button.png" id="18_1wkvs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5k2vy"]
 radius = 111.0
@@ -124,7 +125,9 @@ modifications/5 = SubResource("SkeletonModification2DCCDIK_ievb1")
 modifications/6 = SubResource("SkeletonModification2DCCDIK_slved")
 
 [node name="grantGrapplinghook" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_slved")
+charColour = Color(0.341176, 0.858824, 0.317647, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -405,4 +408,12 @@ theme_override_font_sizes/font_size = 64
 script = ExtResource("17_yxtrn")
 Machine = NodePath("../charStateMachine")
 
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -92.0
+offset_top = -361.0
+offset_right = 164.0
+offset_bottom = -105.0
+texture_click_mask = ExtResource("18_1wkvs")
+
 [connection signal="timeout" from="charStateMachine/groundState/coyote" to="charStateMachine/groundState" method="coyote"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_activate"]

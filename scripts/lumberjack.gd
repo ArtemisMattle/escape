@@ -19,3 +19,8 @@ func checkPath() -> void:
 func changeSpeed() -> void:
 	timeScale = randf_range(0.9, 1.1)
 	animation_player.speed_scale = timeScale
+
+
+func _on_damage_area_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		SignalBus.takeDamage.emit(body)
