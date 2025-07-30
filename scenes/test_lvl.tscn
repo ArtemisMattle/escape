@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://c7eyb8qjjplq1"]
+[gd_scene load_steps=14 format=4 uid="uid://c7eyb8qjjplq1"]
 
 [ext_resource type="Texture2D" uid="uid://p7qh24r0183m" path="res://assets/tiles/testTile.png" id="1_n1f72"]
 [ext_resource type="PackedScene" uid="uid://cjd4r0df4v6sa" path="res://scenes/beryl_bubblegum.tscn" id="2_ar2xt"]
 [ext_resource type="Shader" uid="uid://dyd154lg3obsp" path="res://shaders/testCobble.gdshader" id="2_vrbj3"]
 [ext_resource type="Texture2D" uid="uid://b056w8e0ps0cu" path="res://assets/tiles/cobbleTest.png" id="2_xfjps"]
+[ext_resource type="PackedScene" uid="uid://dvgg7sslot1a0" path="res://scenes/enemies/lumberjack.tscn" id="5_vrbj3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfjps"]
 texture = ExtResource("1_n1f72")
@@ -204,3 +205,6 @@ tile_set = SubResource("TileSet_gsbc8")
 position = Vector2(217, -58)
 zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
+
+[node name="lumberjack" parent="." instance=ExtResource("5_vrbj3")]
+position = Vector2(2426, 751)
