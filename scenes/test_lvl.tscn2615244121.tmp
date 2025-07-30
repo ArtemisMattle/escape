@@ -202,5 +202,4 @@ tile_set = SubResource("TileSet_gsbc8")
 
 [node name="Camera2D" type="Camera2D" parent="berylBubblegum"]
 position = Vector2(217, -58)
-zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true

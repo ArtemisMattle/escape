@@ -19,7 +19,7 @@ func stateInput(event: InputEvent) -> void:
 		nextState = jumpState
 		character.velocity.y = jumpMult * character.jumpVelocity
 
-func stateProcess(delta: float) -> void:
+func stateProcess(_delta: float) -> void:
 	if not character.is_on_floor() and coyoteTimer.is_stopped():
 		coyoteTimer.start()
 

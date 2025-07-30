@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cjd4r0df4v6sa"]
+[gd_scene load_steps=30 format=3 uid="uid://cjd4r0df4v6sa"]
 
 [ext_resource type="Texture2D" uid="uid://cmb8bnmrxauix" path="res://assets/characters/beryl/berylShin.png" id="1_5k2vy"]
 [ext_resource type="Script" uid="uid://gl043mh4yupk" path="res://scripts/playerCon.gd" id="1_dgmor"]
@@ -19,9 +19,10 @@
 [ext_resource type="Script" uid="uid://c2ysdscks4kjs" path="res://scripts/special_beryl.gd" id="16_ch804"]
 [ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="16_sm3lv"]
 [ext_resource type="PackedScene" uid="uid://cpfikv2vgfcug" path="res://scenes/bubblegum_bubble.tscn" id="17_ch804"]
+[ext_resource type="Script" uid="uid://bf3axi33gs0tw" path="res://scripts/jump_special_beryl.gd" id="18_umcca"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5k2vy"]
-radius = 73.0
+radius = 123.0
 height = 512.0
 
 [sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_5k2vy"]
@@ -311,6 +312,7 @@ offset = Vector2(40.8129, 54.2707)
 [node name="BerylFoot2" type="Sprite2D" parent="sprites"]
 position = Vector2(31.9999, 171)
 rotation = 0.517488
+scale = Vector2(1, 1)
 texture = ExtResource("3_dgmor")
 offset = Vector2(39.2155, -24.8129)
 
@@ -426,14 +428,16 @@ process_callback = 0
 wait_time = 0.15
 one_shot = true
 
-[node name="jumpState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("fallState")]
+[node name="jumpState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("fallState", "jumpSpecial")]
 script = ExtResource("14_aoehx")
 fallState = NodePath("../fallState")
+jumpSpecial = NodePath("../jumpSpecialState")
 canSpecial = false
 
-[node name="fallState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("groundState")]
+[node name="fallState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("groundState", "jumpSpecial")]
 script = ExtResource("15_7y85c")
 groundState = NodePath("../groundState")
+jumpSpecial = NodePath("../jumpSpecialState")
 canSpecial = false
 
 [node name="specialState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("jumpState")]
@@ -443,9 +447,13 @@ canMove = false
 canSpecial = false
 
 [node name="bubblegumBubble" parent="charStateMachine/specialState" instance=ExtResource("17_ch804")]
-visible = false
 
-[node name="debugStateLable" type="Label" parent="." node_paths=PackedStringArray("StateMachine")]
+[node name="jumpSpecialState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("jumpState", "bubble")]
+script = ExtResource("18_umcca")
+jumpState = NodePath("../jumpState")
+bubble = NodePath("../specialState/bubblegumBubble")
+
+[node name="debugStateLable" type="Label" parent="." node_paths=PackedStringArray("Machine")]
 visible = false
 offset_left = -41.0
 offset_top = -391.0
@@ -454,6 +462,6 @@ offset_bottom = -342.0
 theme = ExtResource("16_sm3lv")
 theme_override_font_sizes/font_size = 64
 script = ExtResource("16_5rhjr")
-StateMachine = NodePath("../charStateMachine")
+Machine = NodePath("../charStateMachine")
 
 [connection signal="timeout" from="charStateMachine/groundState/coyote" to="charStateMachine/groundState" method="coyote"]

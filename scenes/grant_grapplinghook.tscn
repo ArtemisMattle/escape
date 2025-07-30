@@ -394,7 +394,7 @@ script = ExtResource("15_slved")
 canMove = false
 canSpecial = false
 
-[node name="debugStateLable" type="Label" parent="." node_paths=PackedStringArray("StateMachine")]
+[node name="debugStateLable" type="Label" parent="." node_paths=PackedStringArray("Machine")]
 visible = false
 offset_left = -41.0
 offset_top = -391.0
@@ -403,6 +403,6 @@ offset_bottom = -342.0
 theme = ExtResource("16_ms3c8")
 theme_override_font_sizes/font_size = 64
 script = ExtResource("17_yxtrn")
-StateMachine = NodePath("../charStateMachine")
+Machine = NodePath("../charStateMachine")
 
 [connection signal="timeout" from="charStateMachine/groundState/coyote" to="charStateMachine/groundState" method="coyote"]

@@ -5,6 +5,7 @@ class_name State
 @export var canSpecial: bool = true
 
 var character: CharacterBody2D
+var machine  : StateMachine
 var nextState: State
 
 func stateInit() -> void:
@@ -13,10 +14,10 @@ func stateInit() -> void:
 func onEnter() -> void:
 	pass
 
-func stateInput(event: InputEvent) -> void:
+func stateInput(_event: InputEvent) -> void:
 	pass
 
-func stateProcess(delta: float) -> void:
+func stateProcess(_delta: float) -> void:
 	pass
 
 func onExit() -> void:

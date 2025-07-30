@@ -37,3 +37,4 @@ func _physics_process(delta: float) -> void:
 func deactivate() -> void:
 	set_physics_process(false)
 	visible = false
+	SignalBus.enableSpecial.emit()

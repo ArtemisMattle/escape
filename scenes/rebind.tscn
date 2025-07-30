@@ -1,4 +1,14 @@
-[gd_scene format=3 uid="uid://dktxcvic66p6o"]
+[gd_scene load_steps=6 format=3 uid="uid://dktxcvic66p6o"]
+
+[ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="1_g6pgw"]
+[ext_resource type="Script" uid="uid://bcw1y5fmc8tkf" path="res://scripts/rebind.gd" id="2_g6pgw"]
+[ext_resource type="PackedScene" uid="uid://ouo7y24n1gi0" path="res://scenes/action.tscn" id="2_r64ra"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r64ra"]
+bg_color = Color(0.184314, 0.184314, 0.184314, 0.937255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpwfy"]
+bg_color = Color(0.458767, 0.0087121, 0.506278, 1)
 
 [node name="rebind" type="Control"]
 layout_mode = 3
@@ -7,3 +17,94 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_g6pgw")
+script = ExtResource("2_g6pgw")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -537.0
+offset_top = -409.0
+offset_right = 537.0
+offset_bottom = 409.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r64ra")
+
+[node name="CenterContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="action" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Action"
+
+[node name="spacer" type="Control" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="key" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Key 1"
+
+[node name="key2" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Key 2"
+
+[node name="key3" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Key 3"
+
+[node name="Panel" type="Panel" parent="PanelContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tpwfy")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Action" parent="PanelContainer/CenterContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_r64ra")]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="PanelContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tpwfy")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Reset" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Reset"
+
+[node name="Return" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Return"
+
+[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer2/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer2/Return" to="." method="_on_return_pressed"]

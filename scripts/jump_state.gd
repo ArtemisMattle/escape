@@ -1,6 +1,7 @@
 extends State
 
 @export var fallState: State
+@export var jumpSpecial: State
 var gravityMult: float = 0.5
 
 func onEnter() -> void:
@@ -12,8 +13,10 @@ func stateInput(event: InputEvent) -> void:
 	if event.is_action_released("jump") or event.is_action_pressed("down"):
 		character.velocity.y = 0.0
 		nextState = fallState
+	if event.is_action("special") and machine.specialAvailable:
+		nextState = jumpSpecial
 
-func stateProcess(delta: float) -> void:
+func stateProcess(_delta: float) -> void:
 	if character.velocity.y > 0.0:
 		nextState = fallState
 

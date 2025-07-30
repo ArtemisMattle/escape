@@ -6,25 +6,31 @@ var States: Array[State]
 @export var currentState: State
 @export var specialState: State
 
+var specialAvailable: bool = true
+
 func _ready() -> void:
 	var parent = get_parent()
 	if parent is CharacterBody2D:
 		character = parent
 	else:
 		push_error("Parent " + parent.name + " is not a valid Character")
+	
 	for child in get_children():
 		if (child is State):
 			States.append(child)
 			child.character = character
+			child.machine   = self
 			child.stateInit()
 		else:
 			push_warning("Child " + child.name + " is not a valid State for charStateMachine for " + get_parent().name)
 	currentState.onEnter()
+	
+	SignalBus.enableSpecial.connect(enableSpecial)
 
 func _input(event: InputEvent) -> void:
 	currentState.stateInput(event)
 	
-	if event.is_action_pressed("special") and currentState.canSpecial:
+	if event.is_action_pressed("special") and currentState.canSpecial and specialAvailable:
 		specialState.lastState = currentState
 		switchState(specialState)
 
@@ -41,3 +47,6 @@ func switchState(nextState : State) -> void:
 	currentState = nextState
 	
 	currentState.onEnter()
+
+func enableSpecial() -> void:
+	specialAvailable = true

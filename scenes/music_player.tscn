@@ -5,5 +5,4 @@
 [node name="musicPlayer" type="AudioStreamPlayer"]
 stream = ExtResource("1_jxdhu")
 autoplay = true
-stream_paused = true
 bus = &"music"
