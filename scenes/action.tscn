@@ -22,13 +22,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="button1" type="Button" parent="box"]
+custom_minimum_size = Vector2(77, 0)
 layout_mode = 2
 text = "Additional Key"
 
 [node name="button2" type="Button" parent="box"]
+custom_minimum_size = Vector2(77, 0)
 layout_mode = 2
 text = "Additional Key"
 
 [node name="button3" type="Button" parent="box"]
+custom_minimum_size = Vector2(77, 0)
 layout_mode = 2
 text = "Additional Key"

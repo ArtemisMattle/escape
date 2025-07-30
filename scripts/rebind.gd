@@ -21,6 +21,7 @@ var inpActions: Dictionary = {
 	"special": "Special",
 	"specialAimUp": "Aim Upwards",
 	"specialAimDown": "Aim Downwards",
+	"nextChar": "Cycle Characer",
 }
 
 func _ready() -> void:
@@ -45,7 +46,7 @@ func createActionList() -> void:
 		for i in buttons.size():
 			if events[i] != null:
 				buttons[i].pressed.connect(rebind.bind(buttons[i], actions, events[i]))
-				buttons[i].text = events[i].as_text().trim_suffix(" (Physical)").trim_prefix("Joypad Motion on ").left(20).trim_suffix(" (Bot").trim_suffix(" (Top").trim_suffix(" (Rig")
+				buttons[i].text = events[i].as_text().trim_suffix(" (Physical)").trim_prefix("Joypad Motion on ").left(20).trim_suffix(" (Bot").trim_suffix(" (Top").trim_suffix(" (Rig").trim_suffix(" (Lef")
 			else:
 				buttons[i].text = " "
 				buttons[i].pressed.connect(rebind.bind(buttons[i], actions, null))
@@ -72,14 +73,18 @@ func _input(event: InputEvent) -> void:
 			return
 		print(event)
 		if event.as_text().trim_suffix(" (Physical)") == "Escape":
-			InputMap.action_add_event(RemapAction, RemapEvent)
-			RemapButton.text = RemapEvent.as_text().trim_suffix(" (Physical)").trim_prefix("Joypad Motion on ").left(20).trim_suffix(" (Bot").trim_suffix(" (Top").trim_suffix(" (Rig")
-			usedEvents.append(RemapEvent)
+			if RemapEvent != null:
+				InputMap.action_add_event(RemapAction, RemapEvent)
+				RemapButton.text = RemapEvent.as_text().trim_suffix(" (Physical)").trim_prefix("Joypad Motion on ").left(20).trim_suffix(" (Bot").trim_suffix(" (Top").trim_suffix(" (Rig").trim_suffix(" (Lef")
+				usedEvents.append(RemapEvent)
+			else:
+				RemapButton.text = " "
 			
 			isRebinding = false
 			RemapAction = null
 			RemapButton = null
 			RemapEvent  = null
+			accept_event()
 			return
 		
 		if event is InputEventMouseButton && event.double_click:

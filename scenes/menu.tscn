@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq0w0hygnhwwx"]
+[gd_scene load_steps=12 format=3 uid="uid://bq0w0hygnhwwx"]
 
 [ext_resource type="Script" uid="uid://bpg0j2l6mfdpb" path="res://scripts/menu.gd" id="1_con2f"]
 [ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="1_yqeox"]
@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://b8mxuiicjrmmj" path="res://assets/Logo-agender.svg" id="6_i6lef"]
 [ext_resource type="FontFile" uid="uid://b4gan4k2gjytj" path="res://assets/font/OpenDyslexic3-Regular.ttf" id="7_70i5f"]
 [ext_resource type="Texture2D" uid="uid://mmf1kvbrbw8e" path="res://assets/characters/bluefoxx.png" id="8_mj5lg"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_6wm04"]
+action = &"escape"
+
+[sub_resource type="Shortcut" id="Shortcut_f4mfi"]
+events = [SubResource("InputEventAction_6wm04")]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
 bg_color = Color(1, 1, 1, 0.729412)
@@ -83,6 +89,7 @@ visible = false
 layout_mode = 1
 
 [node name="Credits" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -118,6 +125,7 @@ alignment = 1
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+shortcut = SubResource("Shortcut_f4mfi")
 text = "Return"
 
 [node name="Panel" type="Panel" parent="Credits/VBoxContainer"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dktxcvic66p6o"]
+[gd_scene load_steps=8 format=3 uid="uid://dktxcvic66p6o"]
 
 [ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="1_g6pgw"]
 [ext_resource type="Script" uid="uid://bcw1y5fmc8tkf" path="res://scripts/rebind.gd" id="2_g6pgw"]
@@ -9,6 +9,12 @@ bg_color = Color(0.184314, 0.184314, 0.184314, 0.937255)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpwfy"]
 bg_color = Color(0.458767, 0.0087121, 0.506278, 1)
+
+[sub_resource type="InputEventAction" id="InputEventAction_6wm04"]
+action = &"escape"
+
+[sub_resource type="Shortcut" id="Shortcut_f4mfi"]
+events = [SubResource("InputEventAction_6wm04")]
 
 [node name="rebind" type="Control"]
 layout_mode = 3
@@ -104,6 +110,7 @@ text = "Reset"
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+shortcut = SubResource("Shortcut_f4mfi")
 text = "Return"
 
 [connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer2/Reset" to="." method="_on_reset_pressed"]
