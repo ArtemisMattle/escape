@@ -157,19 +157,19 @@ texture = ExtResource("6_i6lef")
 
 [node name="jonny" type="Label" parent="Credits/VBoxContainer/Panel"]
 layout_mode = 2
-offset_left = 715.0
-offset_top = 280.5
-offset_right = 1055.0
-offset_bottom = 344.5
+offset_left = 778.0
+offset_top = 276.5
+offset_right = 1118.0
+offset_bottom = 340.5
 theme_override_font_sizes/font_size = 32
-text = "Jonas Zeillinger"
+text = "Jonny Z"
 
 [node name="roles" type="Label" parent="Credits/VBoxContainer/Panel/jonny"]
 layout_mode = 2
-offset_left = -28.0
-offset_top = -55.0
-offset_right = 477.0
-offset_bottom = 9.0
+offset_left = -91.0
+offset_top = -53.0
+offset_right = 414.0
+offset_bottom = 11.0
 theme_override_font_sizes/font_size = 32
 text = "Lead Visual Artist"
 
