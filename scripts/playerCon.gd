@@ -21,6 +21,7 @@ var resetPos: Vector2
 @export var messageOffset: Vector2 = Vector2(0, -300)
 
 func _ready() -> void:
+	SignalBus.checkInCharacter.emit(self)
 	SignalBus.takeDamage.connect(reset)
 	SignalBus.deactivate.connect(deactivate)
 	resetPos = position

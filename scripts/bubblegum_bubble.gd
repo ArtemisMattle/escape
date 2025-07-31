@@ -2,6 +2,8 @@ extends Area2D
 
 @onready var animator : AnimationPlayer = $animator
 @onready var collider : CollisionShape2D = $collider
+@onready var timer: Timer = $Timer
+
 var jumpState: State
 
 var velocity: Vector2 = Vector2(100, 0)
@@ -19,6 +21,7 @@ func activate() -> void:
 	set_physics_process(true)
 	collider.disabled = false
 	visible = true
+	timer.start()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.name == "berylBubblegum":
@@ -37,4 +40,8 @@ func _physics_process(delta: float) -> void:
 func deactivate() -> void:
 	set_physics_process(false)
 	visible = false
+	SignalBus.enableSpecial.emit()
+
+
+func _on_timer_timeout() -> void:
 	SignalBus.enableSpecial.emit()

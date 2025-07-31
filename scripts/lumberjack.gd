@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var saw: Sprite2D = $sprites/Body/Saw
+
 
 @export var speed: float = 250
 var timeScale: float = 1
@@ -11,6 +13,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	position.x += delta * speed * sign(scale.x) * timeScale
+	saw.rotate(delta * speed)
 
 func checkPath() -> void:
 	if ray_cast_2d.get_collider() is TileMapLayer:

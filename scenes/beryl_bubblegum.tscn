@@ -314,7 +314,6 @@ offset = Vector2(40.8129, 54.2707)
 [node name="BerylFoot2" type="Sprite2D" parent="sprites"]
 position = Vector2(31.9999, 171)
 rotation = 0.517488
-scale = Vector2(1, 1)
 texture = ExtResource("3_dgmor")
 offset = Vector2(39.2155, -24.8129)
 

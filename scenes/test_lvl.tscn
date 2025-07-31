@@ -34,7 +34,7 @@ cellular_return_type = 6
 domain_warp_enabled = true
 domain_warp_amplitude = 10.0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vrbj3"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gsbc8"]
 seamless = true
 seamless_blend_skirt = 0.493
 color_ramp = SubResource("Gradient_xfjps")
@@ -42,9 +42,9 @@ noise = SubResource("FastNoiseLite_xfjps")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vrbj3"]
 shader = ExtResource("2_vrbj3")
-shader_parameter/tex = SubResource("NoiseTexture2D_vrbj3")
+shader_parameter/tex = SubResource("NoiseTexture2D_gsbc8")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iu4s3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dk0mx"]
 texture = ExtResource("2_xfjps")
 texture_region_size = Vector2i(256, 256)
 0:0/next_alternative_id = 4
@@ -188,7 +188,7 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_iu4s3")
+sources/0 = SubResource("TileSetAtlasSource_dk0mx")
 
 [node name="testLvl" type="Node2D"]
 
