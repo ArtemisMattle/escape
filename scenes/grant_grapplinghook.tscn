@@ -289,6 +289,7 @@ offset = Vector2(124.712, -84.8057)
 [node name="grantShin" type="Sprite2D" parent="sprites"]
 position = Vector2(-13.9974, 105)
 rotation = 0.282014
+scale = Vector2(1, 1)
 texture = ExtResource("3_slved")
 offset = Vector2(117.958, -168.985)
 
@@ -335,7 +336,7 @@ texture = ExtResource("9_70whg")
 offset = Vector2(123.738, 50.7336)
 
 [node name="grantHand" type="Sprite2D" parent="sprites"]
-position = Vector2(-2, -78)
+position = Vector2(-2.39433, -77.5449)
 rotation = -0.662268
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("10_rnx68")
