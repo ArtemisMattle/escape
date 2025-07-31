@@ -3,6 +3,8 @@ extends Area2D
 @onready var animator : AnimationPlayer = $animator
 @onready var collider : CollisionShape2D = $collider
 @onready var timer: Timer = $Timer
+@onready var hazard: PackedScene = load("res://scenes/bubble_hazard.tscn")
+@onready var haz_con: Node = $hazCon
 
 var jumpState: State
 
@@ -38,6 +40,9 @@ func _physics_process(delta: float) -> void:
 	position = position + velocity * delta
 
 func deactivate() -> void:
+	var haz: Node2D = hazard.instantiate()
+	haz_con.add_child(haz)
+	haz.global_position = global_position
 	set_physics_process(false)
 	visible = false
 	SignalBus.enableSpecial.emit()

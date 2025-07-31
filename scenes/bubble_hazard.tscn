@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfo7ov5vqf315"]
+
+[ext_resource type="Texture2D" uid="uid://cpqqecutwmtda" path="res://assets/enemies/bubblegumBad.png" id="1_eqr85"]
+[ext_resource type="Script" uid="uid://1h8lxg6qr6fa" path="res://scripts/bubble_hazard.gd" id="1_oalxf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oalxf"]
+size = Vector2(730, 192)
+
+[node name="bubbleHazard" type="Node2D"]
+script = ExtResource("1_oalxf")
+
+[node name="BubblegumBad" type="Sprite2D" parent="."]
+position = Vector2(-7, -25)
+texture = ExtResource("1_eqr85")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_oalxf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_damage_area_body_entered"]

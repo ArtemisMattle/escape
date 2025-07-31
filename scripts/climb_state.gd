@@ -6,6 +6,7 @@ var dir: float = 0
 @export var hook: Sprite2D
 @export var fakeHook: Sprite2D
 @export var jumpState: State
+@onready var hazard: PackedScene = load("res://scenes/hook_hazard.tscn")
 
 func onEnter() -> void:
 	character.gravityMult = 0
@@ -28,6 +29,9 @@ func stateProcess(delta) -> void:
 	
 
 func onExit() -> void:
+	var haz: Node2D = hazard.instantiate()
+	add_child(haz)
+	haz.position = anchor
 	character.gravityMult = 1
 	hook.visible = false
 	fakeHook.visible = true

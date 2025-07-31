@@ -558,9 +558,8 @@ curve = SubResource("Curve2D_arp2o")
 script = ExtResource("13_fpun6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="door"]
-position = Vector2(-1797.71, -10841)
+position = Vector2(-1798, -10799)
 rotation = -1.56391
-progress = 41.9623
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="door/PathFollow2D"]
 remote_path = NodePath("../../TileMapLayer")
