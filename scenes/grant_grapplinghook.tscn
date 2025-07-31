@@ -135,7 +135,6 @@ position = Vector2(5, -56)
 shape = SubResource("CapsuleShape2D_5k2vy")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
-visible = false
 modification_stack = SubResource("SkeletonModificationStack2D_umcca")
 
 [node name="hip" type="Bone2D" parent="Skeleton2D"]
@@ -360,7 +359,7 @@ position = Vector2(0, 19)
 position = Vector2(9, -74)
 
 [node name="handLT" type="Node2D" parent="ikTargets"]
-position = Vector2(330, -126)
+position = Vector2(479, -191)
 
 [node name="headT" type="Node2D" parent="ikTargets"]
 position = Vector2(176, -215)

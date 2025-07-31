@@ -43,7 +43,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, direction * charMaxSpeed, charAcceleration * delta)
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, 3.0 * charAcceleration * delta)
-
+	else:
+		velocity.x = move_toward(velocity.x, 0.0, 10.0 * charAcceleration * delta)
 	move_and_slide()
 
 func changeFacing() -> void:
