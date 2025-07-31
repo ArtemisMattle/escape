@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://os3vfshqhret"]
+[gd_scene load_steps=5 format=3 uid="uid://os3vfshqhret"]
 
 [ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="1_5p8wc"]
 [ext_resource type="Script" uid="uid://bb5w6ntltxke5" path="res://scripts/settings.gd" id="2_6wm04"]
@@ -6,12 +6,6 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wm04"]
 bg_color = Color(0.309804, 0.309804, 0.309804, 0.698039)
-
-[sub_resource type="InputEventAction" id="InputEventAction_6wm04"]
-action = &"escape"
-
-[sub_resource type="Shortcut" id="Shortcut_f4mfi"]
-events = [SubResource("InputEventAction_6wm04")]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -53,7 +47,6 @@ text = "Rebind"
 [node name="back" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 42)
 layout_mode = 2
-shortcut = SubResource("Shortcut_f4mfi")
 text = "Back"
 
 [node name="volume" parent="CenterContainer/HBoxContainer" instance=ExtResource("2_r6d6q")]

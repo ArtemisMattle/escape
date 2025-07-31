@@ -19,6 +19,7 @@ var resetPos: Vector2
 @onready var msg: PackedScene = preload("res://scenes/message.tscn")
 @export var charColour: Color = Color.WHITE
 @export var messageOffset: Vector2 = Vector2(0, -300)
+var mousePos: Vector2
 
 func _ready() -> void:
 	SignalBus.checkInCharacter.emit(self)
@@ -35,6 +36,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	if active:
+		mousePos = get_global_mouse_position()
 		var direction := Input.get_axis("left", "right")
 		if direction:
 			if facing != sign(direction):

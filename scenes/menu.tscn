@@ -258,6 +258,7 @@ theme_override_constants/line_spacing = -24
 theme_override_font_sizes/font_size = 32
 text = "Support"
 
+[connection signal="pressed" from="edge/centerer/stack/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="edge/centerer/stack/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="edge/centerer/stack/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Credits/VBoxContainer/return" to="." method="_on_return_pressed"]

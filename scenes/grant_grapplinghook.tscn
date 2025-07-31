@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bc8skopkv8t6j"]
+[gd_scene load_steps=30 format=3 uid="uid://bc8skopkv8t6j"]
 
 [ext_resource type="Script" uid="uid://gl043mh4yupk" path="res://scripts/playerCon.gd" id="1_slved"]
 [ext_resource type="Texture2D" uid="uid://duh1b6mxh6bvh" path="res://assets/characters/grant/legL.png" id="2_ievb1"]
@@ -16,8 +16,10 @@
 [ext_resource type="Script" uid="uid://bqx3i6xej5wws" path="res://scripts/fall_state.gd" id="15_orhyk"]
 [ext_resource type="Script" uid="uid://gl5e6uye48sj" path="res://scripts/special_grant.gd" id="15_slved"]
 [ext_resource type="Theme" uid="uid://bftts3ali82xb" path="res://assets/themes/main_theme.tres" id="16_ms3c8"]
+[ext_resource type="Script" uid="uid://ccw1u27c85g7g" path="res://scripts/climb_state.gd" id="17_ibi6o"]
 [ext_resource type="Script" uid="uid://bnak2hbeel1v1" path="res://scripts/debug_state_lable.gd" id="17_yxtrn"]
 [ext_resource type="BitMap" uid="uid://daifi15wn54df" path="res://assets/characters/button.png" id="18_1wkvs"]
+[ext_resource type="Script" uid="uid://cu4jaybjliyt2" path="res://scripts/grant_hook.gd" id="19_40lqs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5k2vy"]
 radius = 111.0
@@ -225,21 +227,21 @@ bone_angle = 21.736
 
 [node name="armL" type="Bone2D" parent="Skeleton2D/hip/jacket"]
 position = Vector2(35.278, 2.00006)
-rotation = -1.04002
-scale = Vector2(0.999998, 0.999998)
+rotation = -0.0314159
+scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.289216, -0.957261, 0.957261, 0.289216, 35.278, 2.00006)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/hip/jacket/armL"]
-rotation = 1.60745
+rotation = 0.314159
 remote_path = NodePath("../../../../../sprites/grantArm2")
 
 [node name="forarmL" type="Bone2D" parent="Skeleton2D/hip/jacket/armL"]
-position = Vector2(26.4348, 139.862)
+position = Vector2(147.669, -4.48693)
 rotation = 0.542012
 rest = Transform2D(0.856672, 0.515861, -0.515861, 0.856672, 26.4348, 139.862)
 auto_calculate_length_and_angle = false
 length = 64.0
-bone_angle = 25.0
+bone_angle = -48.385
 
 [node name="neck" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2(-0.72197, -180)
@@ -300,15 +302,14 @@ offset = Vector2(39.7733, -39.4803)
 
 [node name="grantArm2" type="Sprite2D" parent="sprites"]
 position = Vector2(12.278, -160)
-rotation = 0.56743
-scale = Vector2(0.999998, 0.999998)
+rotation = 0.282743
+scale = Vector2(0.999997, 0.999997)
 texture = ExtResource("6_ibi6o")
 offset = Vector2(42.7656, 52.3454)
 
 [node name="grantHook" type="Sprite2D" parent="sprites/grantArm2"]
 z_index = -1
-position = Vector2(142.301, 3.22179)
-rotation = -0.0182388
+position = Vector2(140, 1.52588e-05)
 texture = ExtResource("5_40lqs")
 offset = Vector2(-95.2779, 48.6689)
 
@@ -386,11 +387,36 @@ fallState = NodePath("../fallState")
 [node name="fallState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("groundState")]
 script = ExtResource("15_orhyk")
 groundState = NodePath("../groundState")
-
-[node name="specialState" type="Node" parent="charStateMachine"]
-script = ExtResource("15_slved")
-canMove = false
 canSpecial = false
+
+[node name="specialState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("prothesis", "hook", "fakeHook", "climbState", "jumpState")]
+script = ExtResource("15_slved")
+prothesis = NodePath("../../Skeleton2D/hip/jacket/armL")
+hook = NodePath("grantHook")
+fakeHook = NodePath("../../sprites/grantArm2/grantHook")
+climbState = NodePath("../climbState")
+jumpState = NodePath("../jumpState")
+canSpecial = false
+
+[node name="grantHook" type="Sprite2D" parent="charStateMachine/specialState" node_paths=PackedStringArray("specialState")]
+z_index = -1
+position = Vector2(5, -121)
+rotation = 0.282743
+scale = Vector2(0.999997, 0.999997)
+texture = ExtResource("5_40lqs")
+offset = Vector2(-95.2779, 48.6689)
+script = ExtResource("19_40lqs")
+specialState = NodePath("..")
+
+[node name="RayCast2D" type="RayCast2D" parent="charStateMachine/specialState/grantHook"]
+position = Vector2(140.203, -40.7328)
+target_position = Vector2(114.769, -45.8396)
+
+[node name="climbState" type="Node" parent="charStateMachine" node_paths=PackedStringArray("hook", "fakeHook", "jumpState")]
+script = ExtResource("17_ibi6o")
+hook = NodePath("../specialState/grantHook")
+fakeHook = NodePath("../../sprites/grantArm2/grantHook")
+jumpState = NodePath("../jumpState")
 
 [node name="debugStateLable" type="Label" parent="." node_paths=PackedStringArray("Machine")]
 visible = false
